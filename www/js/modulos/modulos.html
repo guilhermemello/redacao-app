@@ -1,0 +1,13 @@
+<ion-view view-title="Módulos">
+	<ion-content>
+		<div ng-repeat="modulo in vm.modulos">
+			<div class="card">
+				<div class="item item-text-wrap" ng-click="vm.exibirDetalheModulo(modulo.id)">
+					{{modulo.id}}
+					<h2>Módulo {{modulo.categoria.nome}}</h2>
+					<p class="small_text">{{modulo.status}}</p>
+				</div>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

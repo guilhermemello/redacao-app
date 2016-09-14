@@ -1,0 +1,48 @@
+<ion-view>
+	<ion-nav-title>Módulo {{vm.modulo.categoria.nome}}</ion-nav-title>
+
+  <ion-nav-buttons side="right">
+    <button class="button button-icon ion-document" ng-click="vm.folhaModelo()"></button>
+  </ion-nav-buttons>
+
+	<ion-content has-header="true">
+		<div class="content-inner">
+			<p><strong>Tema:</strong> {{vm.modulo.tema}}</p>
+
+      <br />
+
+      <ion-list>
+        <div class="item item-divider">
+          Detalhes
+        </div>
+        <ion-item>
+          Início em: 12/09/2016
+        </ion-item>
+        <ion-item>
+          Encerramento em: 18/09/2016
+        </ion-item>
+        <ion-item>
+          Envio até: 18/09/2016 (Faltam 5 dias)
+        </ion-item>
+      </ion-list>
+
+      <!-- <div class="row colums-two">
+        <div class="card col home">
+          <a class="item item-text-wrap" ng-click="vm.showProducts(vm.categories[$index])">
+            <h1><i class="ion-chatboxes"></i></h1>
+            <h2>Redação Enviada</h2>
+          </a>
+        </div>
+      </div> -->
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <a class="button button-block" ng-click="vm.enviarRedacao()">
+          <i class="ion-paper-airplane"></i>
+          Enviar Redação
+        </a>
+      </div>
+    </div>
+	</ion-content>
+</ion-view>
