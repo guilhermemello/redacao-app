@@ -58,7 +58,7 @@
       //   // An error occurred. Show a message to the user
       // });
 
-			window.open('http://redacaoperfeita.s3.amazonaws.com/redacoes/3285/enviada/juniormussel.pdf', '_self');
+			window.open('http://redacaoperfeita.s3.amazonaws.com/redacoes/3285/enviada/juniormussel.pdf', '_system', 'location=yes');
     }
 
     function enviarRedacao() {
