@@ -23,8 +23,6 @@
 			console.log(SituacaoService)
 			return DataService.getModulos().then(function(data) {
 				vm.modulos = _(data.modulos).each(function (modulo) { modulo.status = SituacaoService.get(modulo.status.id) })
-				console.log(data);
-				// vm.modulos = data.modulos;
 			});
 		};
 
