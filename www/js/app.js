@@ -1,8 +1,8 @@
 angular.module('redacao', [
   'ionic',
   'ionic.native',
-  'redacao.camera',
   'redacao.api',
+  'redacao.camera',
   'redacao.modulos',
   'redacao.menu'])
 

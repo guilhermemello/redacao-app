@@ -3,9 +3,13 @@
 
 	angular
 		.module('redacao.modulos')
-		.controller('ModulosController', ModulosController, ['DataService']);
+		.controller('ModulosController', ModulosController);
 
-	function ModulosController($state, $scope, DataService) {
+	function ModulosController($state,
+			$scope,
+			SituacaoService,
+			DataService) {
+
 		var vm = angular.extend(this, {
 			modulos: [],
 			exibirDetalheModulo: exibirDetalheModulo
@@ -16,13 +20,10 @@
 		})();
 
 		function carregarModulos() {
-			return DataService.getModulos().then(function(data) {
-				var a = _(data).each(function (a) { a })
-
-				console.log(a);
-
-				vm.modulos = data.modulos;
-			});
+			// return DataService.getModulos().then(function(data) {
+			// 	vm.modulos = _(data.modulos).each(function (a) { a.status = SituacaoService.get(a.id) })
+			// 	console.log(vm.modulos);
+			// });
 		};
 
 		function exibirDetalheModulo(moduloId) {
