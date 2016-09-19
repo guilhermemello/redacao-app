@@ -7,9 +7,9 @@
 
 	<ion-content has-header="true">
 		<div class="content-inner">
-			<p>
+			<p ng-click="vm.exibirTema = !vm.exibirTema;">
 				<strong>Tema:</strong> {{vm.modulo.tema}}
-				<span class="glyphicon" style="margin-left: 6px;" ng-class="vm.exibirTema ? 'ion-chevron-down' : 'ion-chevron-up'" ng-click="vm.exibirTema = !vm.exibirTema;">
+				<span class="glyphicon" style="margin-left: 6px;" ng-class="vm.exibirTema ? 'ion-chevron-down' : 'ion-chevron-up'">
 			</p>
 
 			<p ng-hide="vm.exibirTema" class="tema">

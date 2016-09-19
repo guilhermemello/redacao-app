@@ -7,8 +7,8 @@
 
 	function ModulosController($state,
 			$scope,
-			SituacaoService,
-			DataService) {
+			DataService,
+			SituacaoService) {
 
 		var vm = angular.extend(this, {
 			modulos: [],
@@ -20,10 +20,12 @@
 		})();
 
 		function carregarModulos() {
-			// return DataService.getModulos().then(function(data) {
-			// 	vm.modulos = _(data.modulos).each(function (a) { a.status = SituacaoService.get(a.id) })
-			// 	console.log(vm.modulos);
-			// });
+			console.log(SituacaoService)
+			return DataService.getModulos().then(function(data) {
+				vm.modulos = _(data.modulos).each(function (modulo) { modulo.status = SituacaoService.get(modulo.status.id) })
+				console.log(data);
+				// vm.modulos = data.modulos;
+			});
 		};
 
 		function exibirDetalheModulo(moduloId) {

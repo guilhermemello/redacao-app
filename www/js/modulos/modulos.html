@@ -2,24 +2,18 @@
 	<ion-content>
 		<div ng-repeat="modulo in vm.modulos">
 			<div class="card">
-				<div class="row">
-  				<div class="col col-70" ng-click="vm.exibirDetalheModulo(modulo.id)">
+				<div class="row" ng-click="vm.exibirDetalheModulo(modulo.id)">
+  				<div class="col col-70">
 						{{modulo.categoria.nome}}
 					</div>
   				<div class="col">
-						<span class="label label-danger">{{modulo.status}}</span>
+						<span class="label label-{{modulo.status.cor}}">{{modulo.status.nome}}</span>
 					</div>
 				</div>
 				<div class="item item-text-wrap">
     			<p>Início em: 12/09/2016</p>
 					<p>Encerramento em: 18/09/2016</p>
   			</div>
-
-				<!-- <div class="item item-text-wrap">
-					<h2>Módulo </h2>
-					<p class="small_text"></p>
-				</div>
-			</div> -->
 		</div>
 	</ion-content>
 </ion-view>

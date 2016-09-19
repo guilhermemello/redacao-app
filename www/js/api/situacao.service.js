@@ -2,8 +2,17 @@
 	'use strict';
 
 	angular
-		.module('redacao.api', [])
+		.module('redacao.api')
 		.factory('SituacaoService', SituacaoService);
+
+  var status = [
+    { id: 1, cor: 'cinza', nome: 'Aguardando Confirmação do Pagamento' },
+    { id: 2, cor: 'azul', nome: 'Não Iniciado' },
+    { id: 3, cor: 'verde', nome: 'Em Andamento' },
+    { id: 4, cor: 'laranja', nome: 'Encerrado' },
+    { id: 5, cor: 'vermelho', nome: 'Finalizado' },
+    { id: 6, cor: 'vermelho', nome: 'Cancelado' }
+  ];
 
 	function SituacaoService() {
 		var service = {
@@ -11,15 +20,6 @@
 		};
 
 		return service;
-
-    var status = [
-      { id: 1, color: 'orange', name: 'Aguardando Confirmação do Pagamento' },
-      { id: 2, color: 'blue', name: 'Não Iniciado' },
-      { id: 3, color: 'green', name: 'Em Andamento' },
-      { id: 4, color: 'red', name: 'Encerrado' },
-      { id: 5, color: 'gray', name: 'Finalizado' },
-      { id: 6, color: 'dark-gray', name: 'Cancelado' }
-    ];
 
     function get(id) {
       return status.filter(function(status) {
