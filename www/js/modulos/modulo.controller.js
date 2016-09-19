@@ -57,6 +57,8 @@
       // }, function(err) {
       //   // An error occurred. Show a message to the user
       // });
+
+			window.open('http://redacaoperfeita.s3.amazonaws.com/redacoes/3285/enviada/juniormussel.pdf', '_blank', 'location=yes');
     }
 
     function enviarRedacao() {
@@ -81,10 +83,8 @@
 
 		function exibirInformacoes() {
 			$ionicModal.fromTemplateUrl('js/modulos/informacoes.html', {
-        // scope: $scope,
         animation: 'slide-in-up'
       }).then(function(modal) {
-        // $scope.modal = modal;
         modal.show();
       });
 		}

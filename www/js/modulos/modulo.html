@@ -12,8 +12,7 @@
 				<span class="glyphicon" style="margin-left: 6px;" ng-class="vm.exibirTema ? 'ion-chevron-down' : 'ion-chevron-up'">
 			</p>
 
-			<p ng-hide="vm.exibirTema" class="tema" ng-bind-html="bindHTML(vm.modulo.tema.descricao)">
-			</p>
+			<p ng-hide="vm.exibirTema" class="tema" ng-bind-html="bindHTML(vm.modulo.tema.descricao)"></p>
 
       <br />
 
@@ -22,7 +21,7 @@
           Detalhes
         </div>
         <ion-item>
-          Envio até: {{vm.modulo.tema.expira_em}} (Faltam 5 dias)
+          Envio até: {{vm.modulo.tema.expira_em}} (Faltam {{vm.modulo.tema.dias_restantes}} dias)
         </ion-item>
       </ion-list>
     </div>
@@ -30,7 +29,7 @@
 		<div class="row colums-two">
 			<div class="card col home">
 				<a class="item item-text-wrap">
-					<h1><i class="ion-compose"></i></h1>
+					<h1><i class="ion-clipboard"></i></h1>
 					<h2>Folha Modelo</h2>
 				</a>
 			</div>
