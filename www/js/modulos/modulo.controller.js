@@ -12,8 +12,11 @@
     $cordovaCamera,
     $ionicActionSheet,
     $ionicModal,
+		$sce,
     DataService,
     CameraService) {
+
+		$scope.bindHTML = $sce.trustAsHtml;
 
 		var moduloId = $stateParams.moduloId;
     var modulo = {};

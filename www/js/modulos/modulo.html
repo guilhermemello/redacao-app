@@ -8,14 +8,11 @@
 	<ion-content has-header="true">
 		<div class="content-inner">
 			<p ng-click="vm.exibirTema = !vm.exibirTema;">
-				<strong>Tema:</strong> {{vm.modulo.tema}}
+				<strong>Tema:</strong> {{vm.modulo.tema.titulo}}
 				<span class="glyphicon" style="margin-left: 6px;" ng-class="vm.exibirTema ? 'ion-chevron-down' : 'ion-chevron-up'">
 			</p>
 
-			<p ng-hide="vm.exibirTema" class="tema">
-				<img src="http://redacaoperfeita.s3.amazonaws.com/temas/blob">
-				<br /><br />
-				Diante dos padrões de beleza impostos às pessoas nos últimos tempos, cada vez mais a busca pela estética desejada vem crescendo na sociedade atual. Dietas rigorosas, cirurgias plásticas, academia, anabolizantes, remédios, produtos inovadores, são exemplos de mecanismos que são utilizados para se chegar ao biotipo ideal. Baseando-se nessas informações, redija um texto dissertativo-argumentativo sobre o tema:
+			<p ng-hide="vm.exibirTema" class="tema" ng-bind-html="bindHTML(vm.modulo.tema.descricao)">
 			</p>
 
       <br />
@@ -24,25 +21,10 @@
         <div class="item item-divider">
           Detalhes
         </div>
-        <!-- <ion-item>
-          Início em: 12/09/2016
-        </ion-item>
         <ion-item>
-          Encerramento em: 18/09/2016
-        </ion-item> -->
-        <ion-item>
-          Envio até: 18/09/2016 (Faltam 5 dias)
+          Envio até: {{vm.modulo.tema.expira_em}} (Faltam 5 dias)
         </ion-item>
       </ion-list>
-
-      <!-- <div class="row colums-two">
-        <div class="card col home">
-          <a class="item item-text-wrap" ng-click="vm.showProducts(vm.categories[$index])">
-            <h1><i class="ion-chatboxes"></i></h1>
-            <h2>Redação Enviada</h2>
-          </a>
-        </div>
-      </div> -->
     </div>
 
 		<div class="row colums-two">
@@ -69,14 +51,4 @@
       </div>
     </div>
 	</ion-content>
-
-	<!-- <ion-tabs class="tabs-icon-top tabs-light">
-	 <ion-tab title="Enviada" icon="ion-document" ui-sref="app.teste">
-		 <ion-nav-view name="modulo-teste"></ion-nav-view>
-	 </ion-tab>
-	 <ion-tab title="Correção" icon="ion-clipboard" href="#/app/teste">
-		 <ion-nav-view name="modulo-teste"></ion-nav-view>
-	 </ion-tab>
- </ion-tabs> -->
-
-	</ion-view>
+</ion-view>
