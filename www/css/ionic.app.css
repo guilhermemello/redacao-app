@@ -6198,7 +6198,7 @@ a.item-content {
 
 .item-icon-left .icon-accessory,
 .item-icon-right .icon-accessory {
-  color: red;
+  color: #ccc;
   font-size: 16px; }
 
 .item-icon-left .icon-accessory {
@@ -9875,3 +9875,28 @@ img {
  */
 .platform-android .action-sheet .button {
   padding-left: 16px; }
+
+.card.col.home h1 {
+  text-align: center; }
+
+.card.col.home h2 {
+  text-align: center; }
+
+.tema {
+  margin-top: 20px; }
+
+.label {
+  display: inline;
+  padding: .2em .6em .3em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  float: right; }
+
+.label-danger {
+  background-color: #d9534f; }

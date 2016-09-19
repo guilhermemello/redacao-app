@@ -17,6 +17,10 @@
 
 		function carregarModulos() {
 			return DataService.getModulos().then(function(data) {
+				var a = _(data).each(function (a) { a })
+
+				console.log(a);
+
 				vm.modulos = data.modulos;
 			});
 		};
