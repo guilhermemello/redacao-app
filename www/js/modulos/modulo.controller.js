@@ -42,23 +42,7 @@
 		};
 
     function folhaModelo() {
-      // $ionicModal.fromTemplateUrl('js/modulos/folha-modelo.html', {
-      //   // scope: $scope,
-      //   animation: 'slide-in-up'
-      // }).then(function(modal) {
-      //   // $scope.modal = modal;
-      //   modal.show();
-      // });
-      // $cordovaFileOpener2.open(
-      //   'https://redacaoperfeita.s3.amazonaws.com/folhas_modelo/enem.pdf',
-      //   'application/pdf'
-      // ).then(function() {
-      //   // file opened successfully
-      // }, function(err) {
-      //   // An error occurred. Show a message to the user
-      // });
-
-			window.open('http://redacaoperfeita.s3.amazonaws.com/redacoes/3285/enviada/juniormussel.pdf', '_system', 'location=yes');
+			window.open(vm.modulo.folha_modelo_url, '_system', 'location=yes');
     }
 
     function enviarRedacao() {
