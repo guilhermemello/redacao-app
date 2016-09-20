@@ -13,7 +13,7 @@
     $ionicActionSheet,
     $ionicModal,
 		$sce,
-    DataService,
+    ModuloService,
     CameraService) {
 
 		$scope.bindHTML = $sce.trustAsHtml;
@@ -36,7 +36,7 @@
 		})();
 
 		function carregarModulo() {
-			return DataService.getModulo(moduloId).then(function(data) {
+			return ModuloService.getModulo(moduloId).then(function(data) {
 				vm.modulo = data.modulo;
 			});
 		};

@@ -3,30 +3,39 @@
 
 	angular
 		.module('redacao.modulos')
-		.factory('moduloService', moduloService);
+		.factory('ModuloService', ModuloService);
 
-	// moduloService.$inject = ['dataService'];
+	function ModuloService($http) {
+		var modulos = [];
+		var modulo = {};
 
-	function moduloService(dataService) {
 		var service = {
-			// getFeaturedCategories: getFeaturedCategories,
-			// getFeaturedProducts: getFeaturedProducts,
-			// getBusiness: dataService.getBusiness
-      getModulos: getModulos
+			getModulos: getModulos,
+			getModulo: getModulo,
+			upload: upload
 		};
+
 		return service;
 
-		// function getFeaturedCategories() {
-		// 	return dataService.getFeaturedCategories();
-		// }
-    //
-		// function getFeaturedProducts() {
-		// 	return dataService.getFeaturedProducts();
-		// }
+		function getModulos() {
+			return $http.get('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/modulos?aluno_id=557').then(function(response) {
+				modulos = response.data;
+				return modulos;
+			});
+		};
 
-    function getModulos() {
-      
-    }
+		function getModulo(id) {
+			return $http.get('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/modulos/' + id).then(function(response) {
+				modulo = response.data;
+				return modulo;
+			});
+		};
+
+		function upload(data) {
+			console.log(data);
+			$http.post('http://localhost:4000/api/v1/trabalhos').then(function(response) {
+				console.log(response);
+			});
+		}
 	}
-
 })();
