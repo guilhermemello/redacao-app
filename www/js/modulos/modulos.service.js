@@ -32,6 +32,8 @@
 		};
 
 		function upload(data) {
+			alert('upload');
+
 			$http.post('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/trabalhos', { 'trabalho[redacao_enviada]': data }).then(function(response) {
 				alert(response);
 			});
