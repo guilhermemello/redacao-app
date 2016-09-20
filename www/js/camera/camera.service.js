@@ -41,8 +41,8 @@
       };
 
       $cordovaCamera.getPicture(options).then(function(imageData) {
-        ModuloService.upload("data:image/jpeg;base64," + imageData).then(function(data) {
-					alert(data);
+        ModuloService.upload("data:image/jpeg;base64," + imageData).then(function(response) {
+					alert(response);
 				});
       }, function(error) {
           console.log('Ocorreu um erro ao tirar ou selecionar a foto: ' + error);
