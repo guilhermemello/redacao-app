@@ -132,3 +132,14 @@ img {max-width: 100%;}
 .label-vermelho {
     background-color: #d9534f;
 }
+
+.popup-title {
+	font-weight: bold;
+}
+
+.popup-buttons .button {
+	background-color: $stable;
+}
+.popup-buttons .button.activated {
+	background-color: $stable;
+}

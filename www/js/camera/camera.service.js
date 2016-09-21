@@ -44,10 +44,10 @@
       $cordovaCamera.getPicture(options).then(function(imageData) {
         ModuloService.upload("data:image/jpeg;base64," + imageData)
 					.then(function(response) {
-						ModalService.display_error('camera');
+						ModalService.display('RedaçãoPerfeita', 'Redação enviada com sucesso.')
 					})
 					.catch(function(response) {
-  					console.error('ERROR =>> ' + response);
+  					ModalService.display_error('camera-upload');
 					});
       }, function(error) {
           console.log('Ocorreu um erro ao tirar ou selecionar a foto: ' + error);

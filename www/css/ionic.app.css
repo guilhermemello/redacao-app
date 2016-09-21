@@ -6404,7 +6404,7 @@ button.item.item-button-right {
   padding-top: 8px;
   padding-bottom: 8px;
   min-height: 30px;
-  background-color: #7a7a7a;
+  background-color: #x;
   color: #ffffff;
   font-weight: 500; }
 
@@ -9898,9 +9898,6 @@ img {
   border-radius: .25em;
   float: right; }
 
-.label-danger {
-  background-color: #d9534f; }
-
 .label-cinza {
   background-color: #777; }
 
@@ -9915,3 +9912,15 @@ img {
 
 .label-laranja {
   background-color: #f0ad4e; }
+
+.label-vermelho {
+  background-color: #d9534f; }
+
+.popup-title {
+  font-weight: bold; }
+
+.popup-buttons .button {
+  background-color: #eb8157; }
+
+.popup-buttons .button.activated {
+  background-color: #eb8157; }
