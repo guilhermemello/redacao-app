@@ -9,8 +9,9 @@
 
 	function CameraService($cordovaCamera,
 		$ionicLoading,
-		ModuloService
-	  ) {
+		$ionicPopup,
+		ModuloService,
+		ModalService) {
 
 		var service = {
       capturar: capturar
@@ -41,9 +42,13 @@
       };
 
       $cordovaCamera.getPicture(options).then(function(imageData) {
-        ModuloService.upload("data:image/jpeg;base64," + imageData).then(function(response) {
-					alert(response);
-				});
+        ModuloService.upload("data:image/jpeg;base64," + imageData)
+					.then(function(response) {
+						ModalService.display_error('camera');
+					})
+					.catch(function(response) {
+  					console.error('ERROR =>> ' + response);
+					});
       }, function(error) {
           console.log('Ocorreu um erro ao tirar ou selecionar a foto: ' + error);
       });

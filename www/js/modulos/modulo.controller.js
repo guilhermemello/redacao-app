@@ -7,12 +7,13 @@
 
 	function ModuloController($state,
     $stateParams,
-    $scope,
     $ionicPlatform,
     $cordovaCamera,
     $ionicActionSheet,
     $ionicModal,
+		$ionicPopup,
 		$sce,
+		$scope,
     ModuloService,
     CameraService) {
 
@@ -54,15 +55,15 @@
         titleText: 'Enviar Redação',
         cancelText: 'Cancelar',
         buttonClicked: function(index) {
-          addImage(index);
+          adicionarImagem(index);
         }
       });
     };
 
-    function addImage(type) {
+    function adicionarImagem(tipo) {
       $scope.hideSheet();
 
-      CameraService.capturar(type);
+      CameraService.capturar(tipo);
     };
 
 		function exibirInformacoes() {
