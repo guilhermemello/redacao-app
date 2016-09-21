@@ -14,9 +14,14 @@ angular.module('redacao', [
       cordova.plugins.Keyboard.disableScroll(true);
 
     }
+
     if (window.StatusBar) {
       StatusBar.styleDefault();
     }
+
+    if (navigator && navigator.splashscreen) {
+      navigator.splashscreen.hide();
+    };
   });
 })
 
