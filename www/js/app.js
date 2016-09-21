@@ -1,7 +1,6 @@
 angular.module('redacao', [
   'ionic',
   'ionic.native',
-  // 'redacao.situacao',
   'redacao.api',
   'redacao.camera',
   'redacao.modulos',

@@ -33,6 +33,13 @@
 
     <script src="js/api/modal.service.js"></script>
     <script src="js/camera/camera.service.js"></script>
+
+    <script>
+      document.addEventListener('deviceready', function () {
+        // Hide Splash Screen
+        window.navigator.splashscreen.hide()
+      }, false);
+    </script>
   </head>
 
   <body ng-app="redacao">
