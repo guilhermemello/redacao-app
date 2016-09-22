@@ -15,7 +15,7 @@
 		return service;
 
 		function getAll() {
-			return $http.get('http://localhost:4000/api/v1/comentarios?trabalho_id=577').then(function(response) {
+			return $http.get('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/comentarios?trabalho_id=577').then(function(response) {
 				comentarios = response.data;
 				return comentarios;
 			});
