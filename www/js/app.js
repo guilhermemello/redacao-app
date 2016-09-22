@@ -4,6 +4,7 @@ angular.module('redacao', [
   'redacao.api',
   'redacao.camera',
   'redacao.modulos',
+  'redacao.comentarios',
   'redacao.menu'])
 
 .run(function($ionicPlatform) {

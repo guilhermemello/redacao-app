@@ -30,6 +30,7 @@
       enviarRedacao: enviarRedacao,
       folhaModelo: folhaModelo,
 			exibirInformacoes: exibirInformacoes,
+			exibirComentarios: exibirComentarios,
 			redacaoEnviada: redacaoEnviada,
 			redacaoCorrigida: redacaoCorrigida
     });
@@ -82,6 +83,10 @@
       }).then(function(modal) {
         modal.show();
       });
+		};
+
+		function exibirComentarios() {
+			$state.go('app.comentarios');
 		}
 	}
 })();

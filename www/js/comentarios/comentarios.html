@@ -1,0 +1,32 @@
+<ion-view>
+	<ion-nav-title>Comentários</ion-nav-title>
+
+	<ion-content has-header="true">
+		<div class="content-inner">
+      <div class="row">
+        <section class="comment-list">
+          <div class="row" ng-repeat="comentario in vm.comentarios">
+            <div class="col-30">
+              <figure class="thumbnail">
+                <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
+                <figcaption class="text-center">{{comentario.autor.nome}}</figcaption>
+              </figure>
+            </div>
+            <div class="col-80">
+              <div class="panel panel-default arrow">
+                <div class="panel-body">
+                  <header class="text-left">
+                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="ion-clock"></i> Dec 16, 2014</time>
+                  </header>
+                  <div class="comment-post">
+                    <p class="tema" ng-bind-html="bindHTML(comentario.conteudo)"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
