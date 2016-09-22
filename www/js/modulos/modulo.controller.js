@@ -29,7 +29,9 @@
       carregarModulo: carregarModulo,
       enviarRedacao: enviarRedacao,
       folhaModelo: folhaModelo,
-			exibirInformacoes: exibirInformacoes
+			exibirInformacoes: exibirInformacoes,
+			redacaoEnviada: redacaoEnviada,
+			redacaoCorrigida: redacaoCorrigida
     });
 
 		(function activate() {
@@ -45,6 +47,14 @@
     function folhaModelo() {
 			window.open(vm.modulo.folha_modelo_url, '_system', 'location=yes');
     }
+
+		function redacaoEnviada() {
+			window.open(vm.modulo.redacao_enviada_url, '_system', 'location=yes');
+		}
+
+		function redacaoCorrigida() {
+			window.open(vm.modulo.redacao_corrigida_url, '_system', 'location=yes');
+		}
 
     function enviarRedacao() {
       $scope.hideSheet = $ionicActionSheet.show({

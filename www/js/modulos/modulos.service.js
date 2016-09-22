@@ -25,7 +25,7 @@
 		};
 
 		function getModulo(id) {
-			return $http.get('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/modulos/' + id).then(function(response) {
+			return $http.get('http://localhost:4000/api/v1/modulos/' + id).then(function(response) {
 				modulo = response.data;
 				return modulo;
 			});

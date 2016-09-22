@@ -20,28 +20,55 @@
         <div class="item item-divider">
           Detalhes
         </div>
-        <ion-item>
+        <ion-item ng-if="!vm.modulo.redacao_enviada">
           Envio até: {{vm.modulo.tema.expira_em}} (Faltam {{vm.modulo.tema.dias_restantes}} dias)
+        </ion-item>
+				<ion-item ng-if="vm.modulo.redacao_enviada">
+          Redação enviada em: {{vm.modulo.redacao_entregue_em}}
+        </ion-item>
+				<ion-item ng-if="vm.modulo.redacao_enviada">
+          Prazo para correção: {{vm.modulo.redacao_prazo_correcao}}
         </ion-item>
       </ion-list>
     </div>
 
 		<div class="row colums-two">
-			<div class="card col home">
+			<div class="card col home" ng-if="!vm.modulo.redacao_enviada">
 				<a class="item item-text-wrap" ng-click="vm.folhaModelo()">
 					<h1><i class="ion-clipboard" style="color:#EE7600;"></i></h1>
 					<h2>Folha Modelo</h2>
 				</a>
 			</div>
+			<div class="card col home" ng-if="vm.modulo.redacao_enviada">
+				<a class="item item-text-wrap" ng-click="vm.redacaoEnviada()">
+					<h1><i class="ion-document-text" style="color:#EE7600;"></i></h1>
+					<h2>Redação</h2>
+				</a>
+			</div>
+			<div class="card col home" ng-if="vm.modulo.redacao_corrigida">
+				<a class="item item-text-wrap" ng-click="vm.redacaoCorrigida()">
+					<h1><i class="ion-edit" style="color:#EE7600;"></i></h1>
+					<h2>Correção</h2>
+				</a>
+			</div>
+		</div>
+
+		<div class="row colums-two">
 			<div class="card col home">
 				<a class="item item-text-wrap">
 					<h1><i class="ion-social-youtube-outline" style="color:#EE7600;"></i></h1>
 					<h2>Aulas</h2>
 				</a>
 			</div>
+			<div class="card col home" ng-if="vm.modulo.redacao_corrigida">
+				<a class="item item-text-wrap">
+					<h1><i class="ion-chatboxes" style="color:#EE7600;"></i></h1>
+					<h2>Tira-Dúvidas</h2>
+				</a>
+			</div>
 		</div>
 
-    <div class="row">
+    <div class="row" ng-if="!vm.modulo.redacao_corrigida">
       <div class="col">
         <a class="button button-block" ng-click="vm.enviarRedacao()">
           <i class="icon ion-ios-paperplane"></i>
