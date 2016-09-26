@@ -3,28 +3,53 @@
 
 	<ion-content has-header="true">
 		<div class="content-inner">
+			<div class="alert alert-danger" role="alert"> Para enviar a próxima dúvida, você precisa aguardar a resposta do professor </div>
+
       <div class="row">
         <section class="comment-list">
           <div class="row" ng-repeat="comentario in vm.comentarios">
-            <div class="col-30">
-              <figure class="thumbnail">
-                <img class="img-responsive" src="http://www.keita-gaming.com/assets/profile/default-avatar-c5d8ec086224cb6fc4e395f4ba3018c2.jpg">
-                <figcaption class="text-center">{{comentario.autor.nome}}</figcaption>
-              </figure>
-            </div>
-            <div class="col-80">
-              <div class="panel panel-default arrow">
-                <div class="panel-body">
-                  <header class="text-left">
-                    <time class="comment-date" datetime="16-12-2014 01:05"><i class="ion-clock"></i> Dec 16, 2014</time>
-                  </header>
-                  <div class="comment-post">
-                    <p class="tema" ng-bind-html="bindHTML(comentario.conteudo)"></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+						<div ng-if="comentario.tipo == 1" style="display:flex;">
+							<div class="col col-20">
+								<img src="http://www.elvis.com/assets/images/photos/elvis/1950s/INV16714.jpg" width="50" height="50" class="img-circle" />
+							</div>
+	            <div class="col">
+	              <div class="panel panel-default arrow">
+	                <div class="panel-body">
+										<header class="text-left">
+	          					<div class="comment-user"><strong>{{comentario.autor.nome}}</strong></div>
+	          					<time class="comment-date" datetime="{{comentario.created_at}}">
+	            					<i class="fa fa-clock-o"></i> {{comentario.created_at}}
+	          					</time>
+	        					</header>
+	                  <div class="comment-post">
+	                    <p class="tema" ng-bind-html="bindHTML(comentario.conteudo)"></p>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+
+						<div ng-if="comentario.tipo == 2" style="display:flex;">
+	            <div class="col col-80">
+	              <div class="panel panel-default arrow">
+	                <div class="panel-body">
+										<header class="text-right">
+	          					<div class="comment-user"><strong>Prof. {{comentario.autor.nome}}</strong></div>
+	          					<time class="comment-date" datetime="{{comentario.created_at}}">
+	            					<i class="fa fa-clock-o"></i> {{comentario.created_at}}
+	          					</time>
+	        					</header>
+	                  <div class="comment-post">
+	                    <p class="tema" ng-bind-html="bindHTML(comentario.conteudo)"></p>
+	                  </div>
+	                </div>
+	              </div>
+	            </div>
+							<div class="col col-20">
+								<img src="http://www.elvis.com/assets/images/photos/elvis/1950s/INV16714.jpg" width="50" height="50" class="img-circle" />
+							</div>
+	          </div>
+					</div>
         </section>
       </div>
     </div>
@@ -33,10 +58,10 @@
   <ion-footer-bar align-title="left" class="bar-light" keyboard-attach class="bar-light">
     <div class="bar bar-footer item-input-inset footer-item-input-insert">
       <label class="item-input-wrapper">
-        <input type="search" placeholder="Escreva um comentário..." ng-model="msg.text" maxlength="500">
+        <input type="search" placeholder="Escreva um comentário..." ng-model="vm.comentario.conteudo" maxlength="500">
       </label>
 
-      <button class="button button-clear">
+      <button class="button button-stable" ng-disabled="vm.comentario.conteudo.length == 0 || vm.comentario.conteudo == null" ng-click="vm.criarComentario();">
         Enviar
       </button>
     </div>

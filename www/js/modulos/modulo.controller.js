@@ -86,7 +86,9 @@
 		};
 
 		function exibirComentarios() {
-			$state.go('app.comentarios');
+			$state.go('app.comentarios', {
+				trabalhoId: 577
+			});
 		}
 	}
 })();

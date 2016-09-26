@@ -204,3 +204,19 @@ img {max-width: 100%;}
 .comment-list .comment-post {
   margin-top: 6px;
 }
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}

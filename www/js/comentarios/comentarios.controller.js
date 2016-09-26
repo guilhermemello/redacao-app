@@ -19,7 +19,12 @@
 
 		$scope.bindHTML = $sce.trustAsHtml;
 
+    var trabalhoId = $stateParams.trabalhoId;
+    var comentario = {};
+
     var vm = angular.extend(this, {
+      comentario: comentario,
+      criarComentario: criarComentario,
       comentarios: []
     });
 
@@ -33,5 +38,11 @@
 				vm.comentarios = data.comentarios;
 			});
 		};
+
+    function criarComentario() {
+      ComentarioService.create(trabalhoId, vm.comentario.conteudo);
+
+      carregarComentarios();
+    };
 	}
 })();

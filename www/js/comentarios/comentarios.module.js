@@ -8,7 +8,7 @@
 		.config(function($stateProvider) {
 			$stateProvider
 				.state('app.comentarios', {
-					url: '/comentarios',
+					url: '/comentarios/:trabalhoId',
 					views: {
 						'menuContent': {
 							templateUrl: 'js/comentarios/comentarios.html',

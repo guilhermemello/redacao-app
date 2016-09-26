@@ -9,7 +9,8 @@
 		var comentarios = [];
 
 		var service = {
-			getAll: getAll
+			getAll: getAll,
+      create: create
 		};
 
 		return service;
@@ -20,5 +21,9 @@
 				return comentarios;
 			});
 		};
+
+    function create(trabalhoId, conteudo) {
+      $http.post('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/comentarios?trabalho_id=577', { trabalho_id: trabalhoId, comentario: { conteudo: conteudo } });
+    };
 	}
 })();

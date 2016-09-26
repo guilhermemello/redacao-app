@@ -29,6 +29,6 @@
 			$state.go('app.modulo-detalhe', {
 				moduloId: moduloId
 			});
-		}
+		};
 	}
 })();
