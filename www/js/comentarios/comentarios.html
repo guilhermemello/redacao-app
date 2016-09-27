@@ -3,34 +3,51 @@
 
 	<ion-content has-header="true">
 		<div class="content-inner">
-			<div class="alert alert-danger" role="alert"> Para enviar a próxima dúvida, você precisa aguardar a resposta do professor </div>
+			<div ng-if="vm.trabalho.total_duvidas_aluno == 1 && vm.trabalho.total_respostas_professor == 0">
+				<div class="alert alert-danger" role="alert"> Para enviar a próxima dúvida, você precisa aguardar a resposta do professor </div>
+			</div>
+
+			<div ng-if="vm.trabalho.total_duvidas_aluno == 2 && vm.trabalho.total_respostas_professor == 1">
+				<div class="alert alert-danger" role="alert">Já foram enviadas duas dúvidas para esta redação</div>
+			</div>
+
+			<div ng-if="vm.trabalho.total_respostas_professor == 2">
+				<div class="alert alert-danger" role="alert">Não é mais possível enviar dúvidas para esta redação.</div>
+			</div>
+
+			<div ng-if="vm.trabalho.expirou_prazo_primeira_duvida || (vm.trabalho.total_comentarios > 0 && vm.trabalho.expirou_prazo_segunda_duvida)">
+				<div class="alert alert-danger" role="alert">Não é possível enviar uma nova dúvida para esta redação pois o prazo de dois dias foi atingido.</div>
+			</div>
 
       <div class="row">
         <section class="comment-list">
           <div class="row" ng-repeat="comentario in vm.comentarios">
-						<div ng-if="comentario.tipo == 1" style="display:flex;">
-							<div class="col col-20">
-								<img src="http://www.elvis.com/assets/images/photos/elvis/1950s/INV16714.jpg" width="50" height="50" class="img-circle" />
+						<div ng-if="comentario.tipo == 1">
+							<div style="display:flex;">
+								<div class="col col-20">
+									<img src="http://img09.deviantart.net/77e5/i/2011/284/3/4/shiryu__s_face_by_mikebriceno-d4chq4e.png" width="50" height="50" class="img-circle" />
+								</div>
+		            <div class="col">
+		              <div class="panel panel-default">
+		                <div class="panel-body">
+											<header class="text-left">
+		          					<div class="comment-user"><strong>{{comentario.autor.nome}}</strong></div>
+		          					<time class="comment-date" datetime="{{comentario.created_at}}">
+		            					<i class="fa fa-clock-o"></i> {{comentario.created_at}}
+		          					</time>
+		        					</header>
+		                  <div class="comment-post">
+		                    <p class="item-text-wrap" ng-bind-html="bindHTML(comentario.conteudo)"></p>
+		                  </div>
+		                </div>
+		              </div>
+		            </div>
 							</div>
-	            <div class="col">
-	              <div class="panel panel-default arrow">
-	                <div class="panel-body">
-										<header class="text-left">
-	          					<div class="comment-user"><strong>{{comentario.autor.nome}}</strong></div>
-	          					<time class="comment-date" datetime="{{comentario.created_at}}">
-	            					<i class="fa fa-clock-o"></i> {{comentario.created_at}}
-	          					</time>
-	        					</header>
-	                  <div class="comment-post">
-	                    <p class="tema" ng-bind-html="bindHTML(comentario.conteudo)"></p>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
+
 	          </div>
 
 						<div ng-if="comentario.tipo == 2" style="display:flex;">
-	            <div class="col col-80">
+	            <div class="col">
 	              <div class="panel panel-default arrow">
 	                <div class="panel-body">
 										<header class="text-right">
@@ -61,7 +78,11 @@
         <input type="search" placeholder="Escreva um comentário..." ng-model="vm.comentario.conteudo" maxlength="500">
       </label>
 
-      <button class="button button-stable" ng-disabled="vm.comentario.conteudo.length == 0 || vm.comentario.conteudo == null" ng-click="vm.criarComentario();">
+      <button class="button button-stable" ng-disabled="(vm.comentario.conteudo.length == 0 || vm.comentario.conteudo == null)
+																												|| (vm.trabalho.total_duvidas_aluno == 1 && vm.trabalho.total_respostas_professor == 0)
+																												|| (vm.trabalho.total_duvidas_aluno == 2 && vm.trabalho.total_respostas_professor == 1)
+																												|| (vm.trabalho.total_respostas_professor == 2)
+																												|| (vm.trabalho.expirou_prazo_primeira_duvida || (vm.trabalho.total_comentarios > 0 && vm.trabalho.expirou_prazo_segunda_duvida))" ng-click="vm.criarComentario();">
         Enviar
       </button>
     </div>

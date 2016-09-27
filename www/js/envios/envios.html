@@ -1,0 +1,20 @@
+<ion-view view-title="Envios">
+	<ion-content>
+		<ion-list>
+      <div ng-repeat="redacao in vm.redacoes">
+  			<a class="item item-icon-left item-icon-left-extended item-text-wrap" ng-click="vm.exibirDetalhes(redacao.id)">
+  				<i class="icon ion-document" style="color:#EE7600;"></i>
+  				<h2>{{redacao.tema.titulo}}</h2>
+
+          <div ng-if="redacao.enviada && !redacao.corrigida">
+            <p>Enviada em: {{redacao.entregue_em}}</p>
+          </div>
+
+          <div ng-if="redacao.corrigida">
+            <p>Corrigida em: {{redacao.corrigido_em}}</p>
+          </div>
+  			</a>
+      </div>
+    </ion-list>
+	</ion-content>
+</ion-view>

@@ -20,32 +20,35 @@
         <div class="item item-divider">
           Detalhes
         </div>
-        <ion-item ng-if="!vm.modulo.redacao_enviada">
+        <ion-item ng-if="!vm.modulo.trabalhos[0].enviada">
           Envio até: {{vm.modulo.tema.expira_em}} (Faltam {{vm.modulo.tema.dias_restantes}} dias)
         </ion-item>
-				<ion-item ng-if="vm.modulo.redacao_enviada">
-          Redação enviada em: {{vm.modulo.redacao_entregue_em}}
+				<ion-item ng-if="vm.modulo.trabalhos[0].enviada">
+          Redação enviada em: {{vm.modulo.trabalhos[0].entregue_em}}
         </ion-item>
-				<ion-item ng-if="vm.modulo.redacao_enviada">
-          Prazo para correção: {{vm.modulo.redacao_prazo_correcao}}
+				<ion-item ng-if="vm.modulo.trabalhos[0].corrigida">
+          Redação corrigida em: {{vm.modulo.trabalhos[0].corrigido_em}}
+        </ion-item>
+				<ion-item ng-if="vm.modulo.trabalhos[0].enviada && !vm.modulo.trabalhos[0].corrigida">
+          Prazo para correção: {{vm.modulo.trabalhos[0].prazo_correcao}}
         </ion-item>
       </ion-list>
     </div>
 
 		<div class="row colums-two">
-			<div class="card col home" ng-if="!vm.modulo.redacao_enviada">
+			<div class="card col home" ng-if="!vm.modulo.trabalhos[0].enviada">
 				<a class="item item-text-wrap" ng-click="vm.folhaModelo()">
 					<h1><i class="ion-clipboard" style="color:#EE7600;"></i></h1>
 					<h2>Folha Modelo</h2>
 				</a>
 			</div>
-			<div class="card col home" ng-if="vm.modulo.redacao_enviada">
+			<div class="card col home" ng-if="vm.modulo.trabalhos[0].enviada">
 				<a class="item item-text-wrap" ng-click="vm.redacaoEnviada()">
 					<h1><i class="ion-document-text" style="color:#EE7600;"></i></h1>
 					<h2>Redação</h2>
 				</a>
 			</div>
-			<div class="card col home" ng-if="vm.modulo.redacao_corrigida">
+			<div class="card col home" ng-if="vm.modulo.trabalhos[0].corrigida">
 				<a class="item item-text-wrap" ng-click="vm.redacaoCorrigida()">
 					<h1><i class="ion-edit" style="color:#EE7600;"></i></h1>
 					<h2>Correção</h2>
@@ -55,20 +58,20 @@
 
 		<div class="row colums-two">
 			<div class="card col home">
-				<a class="item item-text-wrap">
-					<h1><i class="ion-social-youtube-outline" style="color:#EE7600;"></i></h1>
-					<h2>Aulas</h2>
+				<a class="item item-text-wrap" ng-click="vm.exibirEnvios(vm.modulo.id)">
+					<h1><i class="ion-ios-copy" style="color:#EE7600;"></i></h1>
+					<h2>Envios</h2>
 				</a>
 			</div>
-			<div class="card col home" ng-if="vm.modulo.redacao_corrigida">
-				<a class="item item-text-wrap" ng-click="vm.exibirComentarios()">
+			<div class="card col home" ng-if="vm.modulo.trabalhos[0].corrigida">
+				<a class="item item-text-wrap" ng-click="vm.exibirComentarios(vm.modulo.trabalhos[0].id)">
 					<h1><i class="ion-chatboxes" style="color:#EE7600;"></i></h1>
 					<h2>Tira-Dúvidas</h2>
 				</a>
 			</div>
 		</div>
 
-    <div class="row" ng-if="!vm.modulo.redacao_corrigida">
+    <div class="row" ng-if="!vm.modulo.trabalhos[0].corrigida">
       <div class="col">
         <a class="button button-block" ng-click="vm.enviarRedacao()">
           <i class="icon ion-ios-paperplane"></i>

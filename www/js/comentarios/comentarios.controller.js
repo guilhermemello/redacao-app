@@ -21,28 +21,38 @@
 
     var trabalhoId = $stateParams.trabalhoId;
     var comentario = {};
+    var trabalho = {};
 
     var vm = angular.extend(this, {
       comentario: comentario,
+      trabalho: trabalho,
       criarComentario: criarComentario,
       comentarios: []
     });
 
 		(function activate() {
+      carregarTrabalho();
 			carregarComentarios();
 		})();
 
 		function carregarComentarios() {
-			return ComentarioService.getAll().then(function(data) {
-        console.log(data);
+			return ComentarioService.getAll(trabalhoId).then(function(data) {
 				vm.comentarios = data.comentarios;
 			});
 		};
 
-    function criarComentario() {
-      ComentarioService.create(trabalhoId, vm.comentario.conteudo);
+    function carregarTrabalho() {
+      return ComentarioService.getTrabalho(trabalhoId).then(function(data) {
+        vm.trabalho = data.trabalho;
+      });
+    }
 
-      carregarComentarios();
+    function criarComentario() {
+      ComentarioService.create(trabalhoId, vm.comentario.conteudo).then(function(data) {
+        carregarComentarios();
+      });
+
+      vm.comentario.conteudo = '';
     };
 	}
 })();

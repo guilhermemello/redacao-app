@@ -4,6 +4,8 @@ angular.module('redacao', [
   'redacao.api',
   'redacao.camera',
   'redacao.modulos',
+  'redacao.trabalhos',
+  'redacao.envios',
   'redacao.comentarios',
   'redacao.menu'])
 

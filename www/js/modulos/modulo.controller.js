@@ -31,6 +31,7 @@
       folhaModelo: folhaModelo,
 			exibirInformacoes: exibirInformacoes,
 			exibirComentarios: exibirComentarios,
+			exibirEnvios: exibirEnvios,
 			redacaoEnviada: redacaoEnviada,
 			redacaoCorrigida: redacaoCorrigida
     });
@@ -85,10 +86,16 @@
       });
 		};
 
-		function exibirComentarios() {
+		function exibirComentarios(trabalhoId) {
 			$state.go('app.comentarios', {
-				trabalhoId: 577
+				trabalhoId: trabalhoId
 			});
-		}
+		};
+
+		function exibirEnvios(moduloId) {
+			$state.go('app.envios', {
+				moduloId: moduloId
+			});
+		};
 	}
 })();
