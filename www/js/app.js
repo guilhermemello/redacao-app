@@ -9,6 +9,8 @@ angular.module('redacao', [
   'redacao.comentarios',
   'redacao.menu'])
 
+.constant('apiUrl', '@@apiUrl');
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
