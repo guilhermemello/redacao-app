@@ -3,6 +3,10 @@
 
 	<ion-content has-header="true">
 		<div class="content-inner">
+			<div ng-if="vm.trabalho.total_duvidas_aluno == 0 && vm.trabalho.total_respostas_professor == 0">
+				<div class="alert alert-warning" role="alert">Envie o primeiro comentário e tire dúvidas sobre a sua redação diretamente com o professor.</div>
+			</div>
+
 			<div ng-if="vm.trabalho.total_duvidas_aluno == 1 && vm.trabalho.total_respostas_professor == 0">
 				<div class="alert alert-danger" role="alert"> Para enviar a próxima dúvida, você precisa aguardar a resposta do professor </div>
 			</div>
@@ -19,58 +23,51 @@
 				<div class="alert alert-danger" role="alert">Não é possível enviar uma nova dúvida para esta redação pois o prazo de dois dias foi atingido.</div>
 			</div>
 
-      <div class="row">
-        <section class="comment-list">
-          <div class="row" ng-repeat="comentario in vm.comentarios">
-						<div ng-if="comentario.tipo == 1">
-							<div style="display:flex;">
-								<div class="col col-20">
-									<img src="http://img09.deviantart.net/77e5/i/2011/284/3/4/shiryu__s_face_by_mikebriceno-d4chq4e.png" width="50" height="50" class="img-circle" />
+			<div class="nano" style="height:580px">
+				<div class="nano-content pad-all" style="right: -10px;">
+					<ul class="list-unstyled media-block">
+						<div ng-repeat="comentario in vm.comentarios">
+							<div ng-switch on="comentario.tipo">
+								<div ng-switch-when="1">
+									<li class="mar-btm">
+										<div class="media-left">
+											<img src="http://bootdey.com/img/Content/avatar/avatar1.png" class="img-circle img-sm" alt="Profile Picture">
+										</div>
+										<div class="media-body pad-hor">
+											<div class="speech">
+												<span class="media-heading">{{comentario.autor.nome}}</span>
+												<p class="item-text-wrap" ng-bind-html="bindHTML(comentario.conteudo)"></p>
+												<p class="speech-time">
+													<i class="fa fa-clock-o fa-fw"></i> {{comentario.created_at}}
+												</p>
+											</div>
+										</div>
+									</li>
 								</div>
-		            <div class="col">
-		              <div class="panel panel-default">
-		                <div class="panel-body">
-											<header class="text-left">
-		          					<div class="comment-user"><strong>{{comentario.autor.nome}}</strong></div>
-		          					<time class="comment-date" datetime="{{comentario.created_at}}">
-		            					<i class="fa fa-clock-o"></i> {{comentario.created_at}}
-		          					</time>
-		        					</header>
-		                  <div class="comment-post">
-		                    <p class="item-text-wrap" ng-bind-html="bindHTML(comentario.conteudo)"></p>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-							</div>
 
-	          </div>
-
-						<div ng-if="comentario.tipo == 2" style="display:flex;">
-	            <div class="col">
-	              <div class="panel panel-default arrow">
-	                <div class="panel-body">
-										<header class="text-right">
-	          					<div class="comment-user"><strong>Prof. {{comentario.autor.nome}}</strong></div>
-	          					<time class="comment-date" datetime="{{comentario.created_at}}">
-	            					<i class="fa fa-clock-o"></i> {{comentario.created_at}}
-	          					</time>
-	        					</header>
-	                  <div class="comment-post">
-	                    <p class="tema" ng-bind-html="bindHTML(comentario.conteudo)"></p>
-	                  </div>
-	                </div>
-	              </div>
-	            </div>
-							<div class="col col-20">
-								<img src="http://www.elvis.com/assets/images/photos/elvis/1950s/INV16714.jpg" width="50" height="50" class="img-circle" />
+								<div ng-switch-when="2">
+									<li class="mar-btm">
+										<div class="media-right">
+											<img src="http://bootdey.com/img/Content/avatar/avatar2.png" class="img-circle img-sm" alt="Profile Picture">
+										</div>
+										<div class="media-body pad-hor speech-right">
+											<div class="speech">
+												<span class="media-heading">Prof. {{comentario.autor.nome}}</span>
+												<p class="item-text-wrap" ng-bind-html="bindHTML(comentario.conteudo)"></p>
+												<p class="speech-time">
+													<i class="fa fa-clock-o fa-fw"></i> {{comentario.created_at}}
+												</p>
+											</div>
+										</div>
+									</li>
+								</div>
 							</div>
-	          </div>
+						</ul>
 					</div>
-        </section>
-      </div>
+				</div>
+			</div>
     </div>
-  </ion-content>
+	</ion-content>
 
   <ion-footer-bar align-title="left" class="bar-light" keyboard-attach class="bar-light">
     <div class="bar bar-footer item-input-inset footer-item-input-insert">

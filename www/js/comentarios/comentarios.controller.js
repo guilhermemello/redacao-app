@@ -15,6 +15,7 @@
 		$sce,
 		$scope,
     ComentarioService,
+		TrabalhoService,
     CameraService) {
 
 		$scope.bindHTML = $sce.trustAsHtml;
@@ -42,7 +43,7 @@
 		};
 
     function carregarTrabalho() {
-      return ComentarioService.getTrabalho(trabalhoId).then(function(data) {
+			return TrabalhoService.get(trabalhoId).then(function(data) {
         vm.trabalho = data.trabalho;
       });
     }
@@ -50,6 +51,7 @@
     function criarComentario() {
       ComentarioService.create(trabalhoId, vm.comentario.conteudo).then(function(data) {
         carregarComentarios();
+				carregarTrabalho();
       });
 
       vm.comentario.conteudo = '';

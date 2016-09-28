@@ -8,47 +8,46 @@
 	<ion-content has-header="true">
 		<div class="content-inner">
 			<p ng-click="vm.exibirTema = !vm.exibirTema;">
-				<strong>Tema:</strong> {{vm.modulo.tema.titulo}}
+				<strong>Tema:</strong> {{vm.trabalho.tema.titulo}}
 				<span class="glyphicon" style="margin-left: 6px;" ng-class="vm.exibirTema ? 'ion-chevron-down' : 'ion-chevron-up'">
 			</p>
 
-			<p ng-hide="vm.exibirTema" class="tema" ng-bind-html="bindHTML(vm.modulo.tema.descricao)"></p>
+			<p ng-hide="vm.exibirTema" class="tema" ng-bind-html="bindHTML(vm.trabalho.tema.descricao)"></p>
 
       <br />
-
       <ion-list>
         <div class="item item-divider">
           Detalhes
         </div>
-        <ion-item ng-if="!vm.modulo.trabalhos[0].enviada">
-          Envio até: {{vm.modulo.tema.expira_em}} (Faltam {{vm.modulo.tema.dias_restantes}} dias)
+        <ion-item ng-if="!vm.trabalho.enviada">
+          Envio até: {{vm.trabalho.tema.expira_em}} (Faltam {{vm.trabalho.tema.dias_restantes}} dias)
         </ion-item>
-				<ion-item ng-if="vm.modulo.trabalhos[0].enviada">
-          Redação enviada em: {{vm.modulo.trabalhos[0].entregue_em}}
+				<ion-item ng-if="vm.trabalho.enviada">
+          Redação enviada em: {{vm.trabalho.entregue_em}}
         </ion-item>
-				<ion-item ng-if="vm.modulo.trabalhos[0].corrigida">
-          Redação corrigida em: {{vm.modulo.trabalhos[0].corrigido_em}}
+				<ion-item ng-if="vm.trabalho.corrigida">
+          Redação corrigida em: {{vm.trabalho.corrigido_em}}
         </ion-item>
-				<ion-item ng-if="vm.modulo.trabalhos[0].enviada && !vm.modulo.trabalhos[0].corrigida">
-          Prazo para correção: {{vm.modulo.trabalhos[0].prazo_correcao}}
+				<ion-item ng-if="vm.modulo.trabalho.enviada && !vm.trabalho.corrigida">
+          Prazo para correção: {{vm.trabalho.prazo_correcao}}
         </ion-item>
       </ion-list>
     </div>
 
 		<div class="row colums-two">
-			<div class="card col home" ng-if="!vm.modulo.trabalhos[0].enviada">
+			<div class="card col home" ng-if="!vm.trabalho.enviada">
 				<a class="item item-text-wrap" ng-click="vm.folhaModelo()">
 					<h1><i class="ion-clipboard" style="color:#EE7600;"></i></h1>
 					<h2>Folha Modelo</h2>
 				</a>
 			</div>
-			<div class="card col home" ng-if="vm.modulo.trabalhos[0].enviada">
+			<div class="card col home" ng-if="vm.trabalho.enviada">
 				<a class="item item-text-wrap" ng-click="vm.redacaoEnviada()">
 					<h1><i class="ion-document-text" style="color:#EE7600;"></i></h1>
 					<h2>Redação</h2>
 				</a>
 			</div>
-			<div class="card col home" ng-if="vm.modulo.trabalhos[0].corrigida">
+			<div class="card col home" ng-if="vm.trabalho.corrigida">
 				<a class="item item-text-wrap" ng-click="vm.redacaoCorrigida()">
 					<h1><i class="ion-edit" style="color:#EE7600;"></i></h1>
 					<h2>Correção</h2>
@@ -57,21 +56,21 @@
 		</div>
 
 		<div class="row colums-two">
-			<div class="card col home">
+			<div class="card col home" ng-if="vm.trabalho.enviada">
 				<a class="item item-text-wrap" ng-click="vm.exibirEnvios(vm.modulo.id)">
 					<h1><i class="ion-ios-copy" style="color:#EE7600;"></i></h1>
 					<h2>Envios</h2>
 				</a>
 			</div>
-			<div class="card col home" ng-if="vm.modulo.trabalhos[0].corrigida">
-				<a class="item item-text-wrap" ng-click="vm.exibirComentarios(vm.modulo.trabalhos[0].id)">
+			<div class="card col home" ng-if="vm.trabalho.corrigida">
+				<a class="item item-text-wrap" ng-click="vm.exibirComentarios(vm.trabalho.id)">
 					<h1><i class="ion-chatboxes" style="color:#EE7600;"></i></h1>
 					<h2>Tira-Dúvidas</h2>
 				</a>
 			</div>
 		</div>
 
-    <div class="row" ng-if="!vm.modulo.trabalhos[0].corrigida">
+    <div class="row" ng-if="!vm.trabalho.corrigida">
       <div class="col">
         <a class="button button-block" ng-click="vm.enviarRedacao()">
           <i class="icon ion-ios-paperplane"></i>

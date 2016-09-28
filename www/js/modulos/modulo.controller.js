@@ -15,6 +15,7 @@
 		$sce,
 		$scope,
     ModuloService,
+		TrabalhoService,
     CameraService) {
 
 		$scope.bindHTML = $sce.trustAsHtml;
@@ -38,6 +39,7 @@
 
 		(function activate() {
 			carregarModulo();
+			carregarTrabalho();
 		})();
 
 		function carregarModulo() {
@@ -46,16 +48,22 @@
 			});
 		};
 
+		function carregarTrabalho() {
+			return TrabalhoService.getByTema(moduloId).then(function(data) {
+				vm.trabalho = data.trabalho;
+			});
+		};
+
     function folhaModelo() {
 			window.open(vm.modulo.folha_modelo_url, '_system', 'location=yes');
     }
 
 		function redacaoEnviada() {
-			window.open(vm.modulo.redacao_enviada_url, '_system', 'location=yes');
+			window.open(vm.trabalho.enviada_url, '_system', 'location=yes');
 		}
 
 		function redacaoCorrigida() {
-			window.open(vm.modulo.redacao_corrigida_url, '_system', 'location=yes');
+			window.open(vm.trabalho.corrigida_url, '_system', 'location=yes');
 		}
 
     function enviarRedacao() {

@@ -22,7 +22,7 @@
 		})();
 
     function carregarTrabalhos() {
-      return TrabalhoService.getByModuloId(moduloId).then(function(data) {
+      return TrabalhoService.getAllByModuloId(moduloId).then(function(data) {
         vm.redacoes = data.trabalhos;
       });
     };

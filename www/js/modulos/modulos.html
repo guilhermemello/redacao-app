@@ -1,19 +1,22 @@
 <ion-view view-title="Módulos">
 	<ion-content>
-		<div ng-repeat="modulo in vm.modulos">
-			<div class="card">
-				<div class="row" ng-click="vm.exibirDetalheModulo(modulo.id)">
-  				<div class="col col-70">
-						{{modulo.categoria.nome}}
+		<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+
+			<div ng-repeat="modulo in vm.modulos">
+				<div class="card">
+					<div class="row" ng-click="vm.exibirDetalheModulo(modulo.id)">
+	  				<div class="col col-70">
+							{{modulo.categoria.nome}}
+						</div>
+	  				<div class="col">
+							<span class="label label-{{modulo.status.cor}}">{{modulo.status.nome}}</span>
+						</div>
 					</div>
-  				<div class="col">
-						<span class="label label-{{modulo.status.cor}}">{{modulo.status.nome}}</span>
-					</div>
+					<div class="item item-text-wrap">
+	    			<p>Início em: {{modulo.inicia_em}}</p>
+						<p>Encerramento em: {{modulo.expira_em}}</p>
+	  			</div>
 				</div>
-				<div class="item item-text-wrap">
-    			<p>Início em: {{modulo.inicia_em}}</p>
-					<p>Encerramento em: {{modulo.expira_em}}</p>
-  			</div>
-		</div>
+			</div>
 	</ion-content>
 </ion-view>

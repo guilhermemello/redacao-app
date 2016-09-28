@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('redacao.api')
+		.module('redacao.api', [])
 		.factory('SituacaoService', SituacaoService);
 
   var status = [

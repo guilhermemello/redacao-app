@@ -1,5 +1,5 @@
 <ion-view>
-	<ion-nav-title>Módulo {{vm.modulo.categoria.nome}}</ion-nav-title>
+	<ion-nav-title>Módulo {{vm.redacao.modulo.categoria.nome}}</ion-nav-title>
 
 	<ion-content has-header="true">
 		<div class="content-inner">
@@ -27,13 +27,13 @@
 
 		<div class="row colums-two">
 			<div class="card col home" ng-if="vm.redacao.enviada">
-				<a class="item item-text-wrap" ng-click="vm.redacaoEnviada()">
+				<a class="item item-text-wrap" ng-click="vm.exibirRedacaoEnviada()">
 					<h1><i class="ion-document-text" style="color:#EE7600;"></i></h1>
 					<h2>Redação</h2>
 				</a>
 			</div>
 			<div class="card col home" ng-if="vm.redacao.corrigida">
-				<a class="item item-text-wrap" ng-click="vm.redacaoCorrigida()">
+				<a class="item item-text-wrap" ng-click="vm.exibirRedacaoCorrigida()">
 					<h1><i class="ion-edit" style="color:#EE7600;"></i></h1>
 					<h2>Correção</h2>
 				</a>
@@ -42,7 +42,7 @@
 
 		<div class="row colums-two">
 			<div class="card col home" ng-if="vm.redacao.corrigida">
-				<a class="item item-text-wrap" ng-click="vm.exibirComentarios(vm.modulo.trabalhos[0].id)">
+				<a class="item item-text-wrap" ng-click="vm.exibirComentarios(vm.redacao.id)">
 					<h1><i class="ion-chatboxes" style="color:#EE7600;"></i></h1>
 					<h2>Tira-Dúvidas</h2>
 				</a>
