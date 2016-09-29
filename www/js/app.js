@@ -2,14 +2,13 @@ angular.module('redacao', [
   'ionic',
   'ionic.native',
   'redacao.api',
+  'redacao.config',
   'redacao.camera',
   'redacao.modulos',
   'redacao.trabalhos',
   'redacao.envios',
   'redacao.comentarios',
   'redacao.menu'])
-
-.constant('apiUrl', '@@apiUrl');
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

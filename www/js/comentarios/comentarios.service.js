@@ -5,9 +5,8 @@
 		.module('redacao.comentarios')
 		.factory('ComentarioService', ComentarioService);
 
-	function ComentarioService($http) {
-		var comentarios = [];
-    var trabalho = {};
+	function ComentarioService($http,
+		API_ENDPOINT) {
 
 		var service = {
 			getAll: getAll,
@@ -18,21 +17,19 @@
 		return service;
 
 		function getAll(trabalhoId) {
-			return $http.get('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/comentarios?trabalho_id=' + trabalhoId).then(function(response) {
-				comentarios = response.data;
-				return comentarios;
+			return $http.get(API_ENDPOINT + '/comentarios?trabalho_id=' + trabalhoId).then(function(response) {
+				return response.data;
 			});
 		};
 
     function getTrabalho(trabalhoId) {
-			return $http.get('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/trabalhos/' + trabalhoId).then(function(response) {
-				trabalho = response.data;
-				return trabalho;
+			return $http.get(API_ENDPOINT+ '/trabalhos/' + trabalhoId).then(function(response) {
+				return response.data;
 			});
 		};
 
     function create(trabalhoId, conteudo) {
-      return $http.post('http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1/comentarios?trabalho_id=577', { trabalho_id: trabalhoId, comentario: { conteudo: conteudo } });
+      return $http.post(API_ENDPOINT + '/comentarios?trabalho_id=577', { trabalho_id: trabalhoId, comentario: { conteudo: conteudo } });
     };
 	}
 })();
