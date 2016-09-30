@@ -8,6 +8,7 @@ angular.module('redacao', [
   'redacao.trabalhos',
   'redacao.envios',
   'redacao.comentarios',
+  'redacao.login',
   'redacao.menu'])
 
 .run(function($ionicPlatform) {
@@ -29,5 +30,5 @@ angular.module('redacao', [
 })
 
 .config(function($urlRouterProvider) {
-	$urlRouterProvider.otherwise('/app/modulos');
+	$urlRouterProvider.otherwise('/app/login');
 });
