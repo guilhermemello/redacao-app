@@ -1,2 +1,2 @@
 angular.module('redacao.config',[])
-  .constant('API_ENDPOINT', 'http://localhost:4000/api/v1');
+  .constant('API_ENDPOINT', 'http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1');

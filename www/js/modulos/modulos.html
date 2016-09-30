@@ -1,6 +1,6 @@
 <ion-view view-title="Módulos">
 	<ion-content>
-		<ion-refresher on-refresh="doRefresh()"></ion-refresher>
+		<ion-refresher on-refresh="vm.carregarModulos()"></ion-refresher>
 
 			<div ng-repeat="modulo in vm.modulos">
 				<div class="card">
