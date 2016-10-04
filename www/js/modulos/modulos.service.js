@@ -17,6 +17,7 @@
 
 		function getModulos() {
 			return $http.get(API_ENDPOINT + '/modulos?aluno_id=557').then(function(response) {
+				console.log(response);
 				return response.data;
 			});
 		};
