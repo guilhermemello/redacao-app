@@ -6,18 +6,25 @@
 		.controller('LoginController', LoginController);
 
 	function LoginController($state,
-    $stateParams) {
+		LoginService,
+		DialogService,
+		LoadingService,
+		CacheService) {
 
     var vm = angular.extend(this, {
+			authenticate: authenticate
     });
 
-		(function activate() {
-		})();
+		function authenticate() {
+			LoginService.authenticate(vm.login, vm.password).then(function(data) {
+				CacheService.set('current_user', JSON.stringify(data.user));
 
-		// function carregarModulo() {
-		// 	return ModuloService.getModulo(moduloId).then(function(data) {
-		// 		vm.modulo = data.modulo;
-		// 	});
-		// };
+				$state.go('app.modulos');
+			}).catch(function(response) {
+				DialogService.display_error(response.status);
+			}).finally(function() {
+				LoadingService.hide();
+			});
+		};
 	}
 })();

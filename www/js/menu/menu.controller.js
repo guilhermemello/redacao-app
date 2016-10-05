@@ -5,12 +5,13 @@
 		.module('redacao.menu')
 		.controller('MenuController', MenuController);
 
-	// MenuController.$inject = ['categories'];
+	function MenuController(LoginService) {
+		var vm = angular.extend(this, {
+			current_user: {}
+		});
 
-	/* @ngInject */
-	function MenuController() {
-		// var vm = angular.extend(this, {
-		// 	categories: categories
-		// });
+		(function activate() {
+			vm.current_user = LoginService.localInit();
+		})();
 	}
 })();

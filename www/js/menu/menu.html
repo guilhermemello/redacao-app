@@ -31,25 +31,25 @@
         <ion-item class="heading-item item item-avatar" nav-clear menu-close ui-sref="app.profile">
           <div class="user-image-container">
             <pre-img ratio="_1_1" helper-class="rounded-image">
-              <img class="user-image" ng-src="https://s.blogcdn.com/www.tuaw.com/media/2008/09/bozoface.jpg" spinner-on-load>
+              <img class="user-image" ng-src="https://res.cloudinary.com/qconcursos/image/upload/t_perfil/v8/{{vm.current_user.avatar_path}}" spinner-on-load>
           	</pre-img>
           </div>
-          <h2 class="greeting">Guilherme</h2>
+          <h2 class="greeting">{{vm.current_user.login}}</h2>
           <!-- <p class="message">Welcome back</p> -->
         </ion-item>
 				<ion-item nav-clear menu-close class="item-icon-left" href="#/app/modulos">
 					<i class="icon ion-folder"></i>
 					<h2 class="menu-text">Módulos</h2>
         </ion-item>
-        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/categories">
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/modulos">
           <i class="icon ion-ios-videocam"></i>
           <h2 class="menu-text">Aulas</h2>
         </ion-item>
-        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/map">
+        <ion-item nav-clear menu-close class="item-icon-left" href="#/app/modulos">
           <i class="icon ion-gear-b"></i>
           <h2 class="menu-text">Configurações</h2>
         </ion-item>
-        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.settings">
+        <ion-item class="item-icon-left" nav-clear menu-close ui-sref="app.modulos">
           <i class="icon ion-android-exit"></i>
           <h2 class="menu-text">Sair</h2>
         </ion-item>

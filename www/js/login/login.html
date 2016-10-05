@@ -5,20 +5,20 @@
                 <div class="col col-50 col-offset-25">
 
                     <div class="header padding text-center">
-                        <img src="https://www.redacaoperfeita.com/assets/logo-slogan3-d3d79339ba826383bea19c54c196430fd60367e3f14d1177be57f6d2f66f377d.png" alt="Your logo here"/>
+                        <img src="https://www.redacaoperfeita.com/assets/logo-slogan3-d3d79339ba826383bea19c54c196430fd60367e3f14d1177be57f6d2f66f377d.png" />
                     </div>
 
                     <div class="list">
                         <label class="item item-input">
-                            <input type="email" placeholder="Email">
+                            <input type="text" placeholder="Email" ng-model="vm.login">
                         </label>
                         <br>
                         <label class="item item-input">
-                            <input type="password" placeholder="Password">
+                            <input type="password" placeholder="Password" ng-model="vm.password">
                         </label>
                     </div>
 
-                    <button class="button button-block button-stable">
+                    <button class="button button-block button-stable" ng-click="vm.authenticate()">
                         Log In
                     </button>
 

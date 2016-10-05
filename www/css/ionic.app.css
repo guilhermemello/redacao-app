@@ -10253,8 +10253,7 @@ ion-side-menu .heading-item .message {
   color: #999999; }
 
 #login {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #efad62), color-stop(100%, #f7d47c));
-  background: -webkit-linear-gradient(top, #efad62 0%, #f7d47c 100%); }
+  background-color: white; }
   #login .scroll-content {
     display: table !important;
     width: 100% !important;
@@ -10263,24 +10262,16 @@ ion-side-menu .heading-item .message {
       display: table-cell;
       vertical-align: middle; }
       #login .scroll-content form .header {
-        padding-bottom: 30px;
+        padding-bottom: 50px;
         margin-top: -120px; }
         #login .scroll-content form .header img {
           display: block;
-          width: 80%;
           margin: 0 auto; }
       #login .scroll-content form .button.button-light.active, #login .scroll-content form .button.button-light.activated {
         color: #fff;
         opacity: inherit; }
 
 form .list .item-input input {
-  color: #fff;
   padding-right: 15px;
   text-align: center;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
   background-clip: padding; }
-
-form .item {
-  padding-bottom: 0;
-  border: none; }

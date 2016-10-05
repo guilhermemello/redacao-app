@@ -1,3 +1,4 @@
 {
-  "API_ENDPOINT": "http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1"
+  "API_ENDPOINT": "http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1",
+  "CUSTOMER_ENDPOINT": "http://qcon-customer-srv-hmg.elasticbeanstalk.com/api/v1"
 }

@@ -44,6 +44,10 @@ gulp.task('replace', function () {
         {
           match: 'API_ENDPOINT',
           replacement: settings.API_ENDPOINT
+        },
+        {
+          match: 'CUSTOMER_ENDPOINT',
+          replacement: settings.CUSTOMER_ENDPOINT
         }
       ]
     }))

@@ -3,13 +3,14 @@
 
 	angular
 		.module('redacao.api')
-		.factory('ModalService', ModalService);
+		.factory('DialogService', DialogService);
 
 		var data = [
-			{ tipo: 'camera-upload', msg: 'Ocorreu um erro ao enviar a redação.' }
+			{ tipo: 'camera-upload', msg: 'Ocorreu um erro ao enviar a redação.' },
+			{ tipo: 401, msg: 'O email ou a senha inseridos não são válidos.' }
 		];
 
-	function ModalService($ionicPopup) {
+	function DialogService($ionicPopup) {
 		var service = {
 			display: display,
 			display_error: display_error
