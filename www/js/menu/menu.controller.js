@@ -5,13 +5,13 @@
 		.module('redacao.menu')
 		.controller('MenuController', MenuController);
 
-	function MenuController(LoginService) {
+	function MenuController(User) {
 		var vm = angular.extend(this, {
 			current_user: {}
 		});
 
 		(function activate() {
-			vm.current_user = LoginService.localInit();
+			vm.current_user = User.initialize();
 		})();
 	}
 })();

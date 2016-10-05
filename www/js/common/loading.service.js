@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('redacao.api')
+		.module('redacao.common')
 		.factory('LoadingService', LoadingService);
 
 	function LoadingService($ionicLoading) {

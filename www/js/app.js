@@ -1,7 +1,7 @@
 angular.module('redacao', [
   'ionic',
   'ionic.native',
-  'redacao.api',
+  'redacao.common',
   'redacao.config',
   'redacao.camera',
   'redacao.modulos',

@@ -10235,9 +10235,9 @@ ion-side-menu .heading-item .item-content {
 
 ion-side-menu .heading-item .user-image-container {
   width: 90px;
-  position: absolute;
-  top: 16px;
-  left: 12px; }
+  margin-top: -30px;
+  margin-left: -25px;
+  padding-bottom: 200px; }
 
 ion-side-menu .heading-item .user-image-container .user-image {
   border-radius: 50%;
@@ -10247,10 +10247,44 @@ ion-side-menu .heading-item .user-image-container .user-image {
 
 ion-side-menu .heading-item .greeting {
   color: #FFFFFF;
-  font-weight: 500; }
+  margin-left: -20px;
+  margin-top: 10px;
+  font-weight: bold; }
 
 ion-side-menu .heading-item .message {
   color: #999999; }
+
+.bar.bar-profile {
+  background-color: #262D2F;
+  height: 170px; }
+
+.bar .profile {
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+  overflow: hidden;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  padding-top: 15px; }
+
+.profile .name {
+  color: #FFFFFF;
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+  font-size: 16px;
+  font-weight: bold; }
+
+.profile-picture {
+  border-radius: 50%;
+  padding: 8px;
+  border: 1px solid #999999;
+  width: 35%; }
+
+.menu .has-header {
+  top: 169px; }
 
 #login {
   background-color: white; }

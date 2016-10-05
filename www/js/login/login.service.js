@@ -7,11 +7,10 @@
 
 	function LoginService($http,
 		CUSTOMER_ENDPOINT,
-		CacheService) {
+		LoadingService) {
 
 		var service = {
-			authenticate: authenticate,
-			localInit: localInit
+			authenticate: authenticate
 		};
 
 		return service;
@@ -29,11 +28,6 @@
 			return $http.post(CUSTOMER_ENDPOINT + '/sign_in', params).then(function(response) {
 				return response.data;
 			});
-		};
-
-		function localInit() {
-			console.log(JSON.parse(CacheService.get('current_user')));
-			return JSON.parse(CacheService.get('current_user'));
 		};
 	}
 })();
