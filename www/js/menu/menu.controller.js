@@ -7,7 +7,11 @@
 
 	function MenuController($state,
 		LoginService,
-		AccessToken) {
+		AccessToken,
+		$scope,
+		User) {
+
+			$scope.current_user = User.initialize();
 		var vm = angular.extend(this, {
 			signOut: signOut
 		});
