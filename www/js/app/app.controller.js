@@ -5,8 +5,9 @@
 		.module('redacao.app', [])
 		.controller('AppController', AppController);
 
-	function AppController(User) {
-    var app = this;
-    app.current_user = User.initialize();
+	function AppController(User, $scope) {
+		(function activate() {
+      $scope.current_user = User.initialize();
+		})();
 	}
 })();
