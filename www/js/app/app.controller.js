@@ -6,8 +6,6 @@
 		.controller('AppController', AppController);
 
 	function AppController(User, $scope) {
-		(function activate() {
-      $scope.current_user = User.initialize();
-		})();
-	}
+    $scope.current_user = User.initialize();
+	};
 })();
