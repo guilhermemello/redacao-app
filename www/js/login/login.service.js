@@ -9,7 +9,8 @@
 		CUSTOMER_ENDPOINT,
 		LoadingService,
 		AccessToken,
-		CacheService) {
+		CacheService,
+		User) {
 
 		var service = {
 			authenticate: authenticate,
@@ -28,9 +29,14 @@
 
 			LoadingService.show();
 
-			return $http.post(CUSTOMER_ENDPOINT + '/sign_in', params).then(function(response) {
-				return response.data;
-			});
+			return $http.post(CUSTOMER_ENDPOINT + '/sign_in', params)
+				.success(function(response) {
+					User.initialize(response.user);
+				}).error(function(response) {
+
+				}).finally(function() {
+					LoadingService.hide();
+				});
 		};
 
 		function signOut(access_token) {

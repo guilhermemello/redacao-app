@@ -7,6 +7,6 @@
 
 	function AppController(User,
     $scope) {
-    $scope.current_user = User.initialize();
+    $scope.current_user = User.localInit();
 	};
 })();

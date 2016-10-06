@@ -8,12 +8,13 @@
 	function User(CacheService,
 		AccessToken) {
 		var service = {
-			initialize: initialize
+			initialize: initialize,
+			localInit: localInit
 		};
 
 		return service;
 
-		function initialize() {
+		function localInit() {
 			var data;
 
 			if (CacheService.get('current_user') != undefined) {
@@ -25,5 +26,15 @@
 
 			return data;
 		};
+
+		function initialize(data) {
+			_(this).extend(data);
+
+			CacheService.set('current_user', JSON.stringify(data));
+			this.logged = !_(data).isEmpty();
+
+			AccessToken.invalid = false;
+			AccessToken.current = data.access_token;
+		}
 	}
 })();
