@@ -1,4 +1,7 @@
 {
-  "API_ENDPOINT": "http://localhost:4000/api/v1",
-  "CUSTOMER_ENDPOINT": "http://qcon-customer-srv-hmg.elasticbeanstalk.com/api/v1"
+  "API_ENDPOINT": "http://api-hmg.us-east-1.elasticbeanstalk.com/api/v1",
+  "CUSTOMER_ENDPOINT": "http://qcon-customer-srv-hmg.elasticbeanstalk.com/api/v1",
+  "AUTH_CLIENT_ID" : "d60aaf0ff0b1e3ed9bb230e804f5dd1e",
+  "AUTH_SECRET": "79a5cafc1d7fb1ae2cf73da560521978",
+  "AUTH_EXPIRES_IN": 9999999999
 }

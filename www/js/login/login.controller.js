@@ -9,10 +9,12 @@
 		LoginService,
 		DialogService,
 		LoadingService,
-		CacheService) {
+		CacheService,
+		AccessToken) {
 
     var vm = angular.extend(this, {
 			authenticate: authenticate
+			// signOut: signOut
     });
 
 		function authenticate() {
@@ -26,5 +28,12 @@
 				LoadingService.hide();
 			});
 		};
+
+		// function signOut() {
+		// 	console.log("======>>>");
+		// 	LoginService.signOut(AccessToken.current).finally(function () {
+    //     $state.go('app.login');
+		// 	});
+		// }
 	}
 })();

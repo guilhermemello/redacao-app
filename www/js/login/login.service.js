@@ -7,10 +7,13 @@
 
 	function LoginService($http,
 		CUSTOMER_ENDPOINT,
-		LoadingService) {
+		LoadingService,
+		AccessToken,
+		CacheService) {
 
 		var service = {
-			authenticate: authenticate
+			authenticate: authenticate,
+			signOut: signOut
 		};
 
 		return service;
@@ -28,6 +31,23 @@
 			return $http.post(CUSTOMER_ENDPOINT + '/sign_in', params).then(function(response) {
 				return response.data;
 			});
+		};
+
+		function signOut(access_token) {
+			var params = {
+				user : {
+					access_token: access_token
+				}
+			}
+
+			return $http.delete(CUSTOMER_ENDPOINT + '/sign_out?user[access_token]=' + access_token).success(function() {
+				CacheService.remove('current_user');
+				clearAccessToken();
+			});
+		};
+
+		function clearAccessToken() {
+			AccessToken.current = ''
 		};
 	}
 })();

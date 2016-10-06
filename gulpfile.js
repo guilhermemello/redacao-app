@@ -48,6 +48,18 @@ gulp.task('replace', function () {
         {
           match: 'CUSTOMER_ENDPOINT',
           replacement: settings.CUSTOMER_ENDPOINT
+        },
+        {
+          match: 'AUTH_CLIENT_ID',
+          replacement: settings.AUTH_CLIENT_ID
+        },
+        {
+          match: 'AUTH_SECRET',
+          replacement: settings.AUTH_SECRET
+        },
+        {
+          match: 'AUTH_EXPIRES_IN',
+          replacement: settings.AUTH_EXPIRES_IN
         }
       ]
     }))

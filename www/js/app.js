@@ -9,6 +9,7 @@ angular.module('redacao', [
   'redacao.envios',
   'redacao.comentarios',
   'redacao.login',
+  'redacao.interceptors',
   'redacao.menu'])
 
 .run(function($ionicPlatform) {
@@ -29,6 +30,10 @@ angular.module('redacao', [
   });
 })
 
-.config(function($urlRouterProvider) {
+.config(function($urlRouterProvider,
+  $httpProvider) {
+
+  $httpProvider.interceptors.push('ClientAuthenticationInterceptor');
+
 	$urlRouterProvider.otherwise('/app/login');
 });
