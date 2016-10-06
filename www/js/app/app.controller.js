@@ -7,6 +7,6 @@
 
 	function AppController(User) {
     var app = this;
-     app.current_user = User.initialize();
+    app.current_user = User.initialize();
 	}
 })();

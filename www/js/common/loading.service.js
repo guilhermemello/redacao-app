@@ -15,7 +15,7 @@
 
     function show() {
       $ionicLoading.show({
-        template: '<ion-spinner></ion-spinner>'
+        template: "<ion-spinner icon='bubbles'></ion-spinner>"
       });
     };
 
