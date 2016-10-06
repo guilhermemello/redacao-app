@@ -6,23 +6,16 @@
 		.controller('MenuController', MenuController);
 
 	function MenuController($state,
-		User,
-		LoginService) {
+		LoginService,
+		AccessToken) {
 		var vm = angular.extend(this, {
-			current_user: {},
 			signOut: signOut
 		});
 
-		(function activate() {
-			vm.current_user = User.initialize();
-		})();
-
 		function signOut() {
-			LoginService.signOut(vm.current_user.access_token).success(function(response) {
-					console.log(response);
-				}).finally(function() {
-					$state.go('app.login');
-				});
+			LoginService.signOut(AccessToken.current).finally(function() {
+				$state.go('app.login');
+			});
 		}
 	}
 })();

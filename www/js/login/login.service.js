@@ -47,7 +47,7 @@
 		};
 
 		function clearAccessToken() {
-			AccessToken.current = ''
+			AccessToken.current = '';
 		};
 	}
 })();

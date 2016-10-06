@@ -14,26 +14,17 @@
 
     var vm = angular.extend(this, {
 			authenticate: authenticate
-			// signOut: signOut
     });
 
 		function authenticate() {
 			LoginService.authenticate(vm.login, vm.password).then(function(data) {
 				CacheService.set('current_user', JSON.stringify(data.user));
-
-				$state.go('app.modulos');
 			}).catch(function(response) {
 				DialogService.display_error(response.status);
 			}).finally(function() {
 				LoadingService.hide();
+				$state.go('app.modulos');
 			});
 		};
-
-		// function signOut() {
-		// 	console.log("======>>>");
-		// 	LoginService.signOut(AccessToken.current).finally(function () {
-    //     $state.go('app.login');
-		// 	});
-		// }
 	}
 })();

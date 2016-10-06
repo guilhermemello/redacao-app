@@ -14,7 +14,6 @@
 		return service;
 
 		function initialize() {
-			// console.log(JSON.parse(CacheService.get('current_user')));
 			var data;
 
 			if (CacheService.get('current_user') != undefined) {
