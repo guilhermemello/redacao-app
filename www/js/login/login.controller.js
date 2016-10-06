@@ -20,8 +20,6 @@
 				$state.go('app.modulos');
 			}).catch(function(response) {
 				DialogService.display_error(response.status);
-			}).finally(function() {
-				LoadingService.hide();
 			});
 		};
 	}

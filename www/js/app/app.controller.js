@@ -6,7 +6,13 @@
 		.controller('AppController', AppController);
 
 	function AppController(User,
-    $scope) {
-    $scope.current_user = User.localInit();
+    $scope,
+		CacheService) {
+
+		var a = CacheService.get('current_user');
+
+		if (a != undefined) {
+			$scope.teste = JSON.parse(a);
+		}
 	};
 })();

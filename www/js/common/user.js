@@ -6,7 +6,8 @@
 		.factory('User', User);
 
 	function User(CacheService,
-		AccessToken) {
+		AccessToken,
+		$q) {
 		var service = {
 			initialize: initialize,
 			localInit: localInit
@@ -15,23 +16,28 @@
 		return service;
 
 		function localInit() {
-			var data;
+			// var data;
+
+			var deferred = $q.defer()
 
 			if (CacheService.get('current_user') != undefined) {
-				data = JSON.parse(CacheService.get('current_user'));
+				// data = JSON.parse(CacheService.get('current_user'));
 
-				AccessToken.invalid = false
-				AccessToken.current = data.access_token
+				initialize(JSON.parse(CacheService.get('current_user')));
+				deferred.resolve()
 			}
 
-			return data;
+			// return data;
+			return deferred.promise;
 		};
 
 		function initialize(data) {
 			_(this).extend(data);
 
 			CacheService.set('current_user', JSON.stringify(data));
-			this.logged = !_(data).isEmpty();
+			// this.logged = !_(data).isEmpty();
+
+			console.log(_(this).name);
 
 			AccessToken.invalid = false;
 			AccessToken.current = data.access_token;
