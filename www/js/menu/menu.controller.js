@@ -23,9 +23,12 @@
 		})();
 
 		function signOut() {
-			console.log("access_token ==> " + $scope.current_user.access_token);
-			LoginService.signOut($scope.current_user.access_token).finally(function() {
-				$state.go('app.login');
+			DatabaseService.get().then(function(response) {
+				console.log(response);
+				LoginService.signOut(response.access_token).then(function() {
+					console.log('aaaa');
+					$state.go('app.login', { force: true });
+				});
 			});
 		}
 	}

@@ -39,16 +39,10 @@
 				});
 		};
 
-		function signOut(access_token) {
-			var params = {
-				user : {
-					access_token: access_token
-				}
-			}
-
-			return $http.delete(CUSTOMER_ENDPOINT + '/sign_out?user[access_token]=' + access_token).success(function() {
-				// CacheService.remove('current_user');
-				clearAccessToken();
+		function signOut(accessToken) {
+			return $http.delete(CUSTOMER_ENDPOINT + '/sign_out?user[access_token]=' + accessToken).success(function() {
+				DatabaseService.remove(accessToken);
+				// clearAccessToken();
 			});
 		};
 
