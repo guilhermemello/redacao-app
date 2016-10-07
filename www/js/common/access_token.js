@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-		.module('redacao.common')
+		.module('redacao.common', [])
 		.factory('AccessToken', AccessToken);
 
 	function AccessToken() {

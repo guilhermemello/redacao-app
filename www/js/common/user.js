@@ -5,39 +5,40 @@
 		.module('redacao.common')
 		.factory('User', User);
 
-	function User(CacheService,
-		AccessToken,
+	function User(AccessToken,
 		$q) {
 		var service = {
 			initialize: initialize,
-			localInit: localInit
+			localInit: localInit,
+			shouldInitFromLocalStorage: shouldInitFromLocalStorage
 		};
 
 		return service;
 
-		function localInit() {
-			// var data;
+		function shouldInitFromLocalStorage() {
+			return !this.logged // && CacheService.get('current_user');
+		};
 
+		function localInit() {
 			var deferred = $q.defer()
 
-			if (CacheService.get('current_user') != undefined) {
-				// data = JSON.parse(CacheService.get('current_user'));
+        if (this.shouldInitFromLocalStorage()) {
+					console.log('a');
+          // this.initialize(CacheService.get('user'))
+          deferred.resolve()
+        } else {
+					console.log('b');
+          deferred.reject()
+        }
 
-				initialize(JSON.parse(CacheService.get('current_user')));
-				deferred.resolve()
-			}
-
-			// return data;
-			return deferred.promise;
+				return deferred.promise
 		};
 
 		function initialize(data) {
 			_(this).extend(data);
 
-			CacheService.set('current_user', JSON.stringify(data));
-			// this.logged = !_(data).isEmpty();
-
-			console.log(_(this).name);
+			// CacheService.set('current_user', JSON.stringify(data));
+			this.logged = !_(data).isEmpty();
 
 			AccessToken.invalid = false;
 			AccessToken.current = data.access_token;

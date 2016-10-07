@@ -1,6 +1,7 @@
 angular.module('redacao', [
   'ionic',
   'ionic.native',
+  'ngCordova',
   'redacao.app',
   'redacao.common',
   'redacao.config',
@@ -13,7 +14,7 @@ angular.module('redacao', [
   'redacao.interceptors',
   'redacao.menu'])
 
-.run(function($ionicPlatform) {
+.run(function($ionicPlatform, DatabaseService) {
   $ionicPlatform.ready(function() {
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);

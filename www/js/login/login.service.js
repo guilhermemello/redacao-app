@@ -9,8 +9,8 @@
 		CUSTOMER_ENDPOINT,
 		LoadingService,
 		AccessToken,
-		CacheService,
-		User) {
+		User,
+		DatabaseService) {
 
 		var service = {
 			authenticate: authenticate,
@@ -31,7 +31,7 @@
 
 			return $http.post(CUSTOMER_ENDPOINT + '/sign_in', params)
 				.success(function(response) {
-					User.initialize(response.user);
+					DatabaseService.set(response.user);
 				}).error(function(response) {
 
 				}).finally(function() {
@@ -47,7 +47,7 @@
 			}
 
 			return $http.delete(CUSTOMER_ENDPOINT + '/sign_out?user[access_token]=' + access_token).success(function() {
-				CacheService.remove('current_user');
+				// CacheService.remove('current_user');
 				clearAccessToken();
 			});
 		};
