@@ -7,8 +7,7 @@
 
 	function LoginController($state,
 		LoginService,
-		DialogService,
-		LoadingService) {
+		DialogService) {
 
     var vm = angular.extend(this, {
 			authenticate: authenticate

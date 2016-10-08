@@ -1,3 +1,5 @@
+var db = null;
+
 angular.module('redacao', [
   'ionic',
   'ionic.native',
@@ -28,6 +30,8 @@ angular.module('redacao', [
     if (navigator && navigator.splashscreen) {
       navigator.splashscreen.hide();
     };
+
+    DatabaseService.init();
   });
 })
 
