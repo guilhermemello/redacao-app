@@ -17,6 +17,7 @@
 
 		(function activate() {
 			DatabaseService.get().then(function(response) {
+				console.log(response);
 				$scope.current_user = response;
 			});
 		})();

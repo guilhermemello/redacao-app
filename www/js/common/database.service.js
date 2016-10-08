@@ -35,9 +35,9 @@
 			var q = $q.defer();
 
 			if (window.cordova && window.SQLitePlugin) {
-				db = $cordovaSQLite.openDB('usuarios.db', 1);
+				db = $cordovaSQLite.openDB('redacao.db', 1);
 			} else {
-				db = window.openDatabase('usuarios', '1.0', 'usuarios.db', 100 * 1024 * 1024);
+				db = window.openDatabase('redacao', '1.0', 'redacao.db', 100 * 1024 * 1024);
 			}
 
       $cordovaSQLite.execute(db, query).then(function(response) {
@@ -55,10 +55,12 @@
 
     function set(data) {
 			if (window.cordova && window.SQLitePlugin) {
-				db = $cordovaSQLite.openDB('usuarios.db', 1);
+				db = $cordovaSQLite.openDB('redacao.db', 1);
 			} else {
-				db = window.openDatabase('usuarios', '1.0', 'usuarios.db', 100 * 1024 * 1024);
+				db = window.openDatabase('redacao', '1.0', 'redacao.db', 100 * 1024 * 1024);
 			}
+
+			$cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS usuarios (id, access_token, nome, avatar_path)');
 
       var query = "INSERT INTO usuarios (id, access_token, nome, avatar_path) VALUES (?,?,?,?)";
 			$cordovaSQLite.execute(db, query, [data.id, data.access_token, data.name, data.avatar_path]);
@@ -66,9 +68,9 @@
 
 		function remove(accessToken) {
 			if (window.cordova && window.SQLitePlugin) {
-				db = $cordovaSQLite.openDB('usuarios.db', 1);
+				db = $cordovaSQLite.openDB('redacao.db', 1);
 			} else {
-				db = window.openDatabase('usuarios', '1.0', 'usuarios.db', 100 * 1024 * 1024);
+				db = window.openDatabase('redacao', '1.0', 'redacao.db', 100 * 1024 * 1024);
 			}
 
       var query = "DELETE FROM usuarios WHERE access_token = ?";
