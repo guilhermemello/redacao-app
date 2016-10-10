@@ -32,7 +32,7 @@ angular.module('redacao', [
       navigator.splashscreen.hide();
     };
 
-    DatabaseService.init();
+    // DatabaseService.init();
   });
 })
 
