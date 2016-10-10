@@ -6,7 +6,8 @@
 		.factory('DatabaseService', DatabaseService);
 
 	function DatabaseService($cordovaSQLite,
-		$q) {
+		$q,
+		$ionicPlatform) {
 
 		var service = {
 			get: get,
@@ -31,6 +32,7 @@
 			var query = "SELECT * FROM usuarios ORDER BY rowid DESC LIMIT 1"
 			var hash = {};
 			var q = $q.defer();
+			var db;
 
 			$ionicPlatform.ready(function() {
 				if (window.cordova && window.SQLitePlugin) {
@@ -38,7 +40,7 @@
 				} else {
 					db = window.openDatabase('redacao', '1.0', 'redacao.db', 100 * 1024 * 1024);
 				}
-			});
+
 
       $cordovaSQLite.execute(db, query).then(function(response) {
 				if (response.rows.length > 0) {
@@ -48,6 +50,7 @@
 
 					q.resolve(hash);
 				}
+				});
 			});
 
 			return q.promise;
