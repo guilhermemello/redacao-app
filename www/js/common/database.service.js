@@ -41,6 +41,7 @@
 					db = window.openDatabase('redacao', '1.0', 'redacao.db', 100 * 1024 * 1024);
 				}
 
+				$cordovaSQLite.execute(db, 'CREATE TABLE IF NOT EXISTS usuarios (id, access_token, nome, avatar_path)');
 
       $cordovaSQLite.execute(db, query).then(function(response) {
 				if (response.rows.length > 0) {
@@ -48,6 +49,7 @@
 						hash = response.rows.item(i);
 					}
 
+					console.log(hash);
 					q.resolve(hash);
 				}
 				});
@@ -57,13 +59,23 @@
 		};
 
     function save(data) {
+			if (window.cordova && window.SQLitePlugin) {
+				db = $cordovaSQLite.openDB('redacao.db', 1);
+			} else {
+				db = window.openDatabase('redacao', '1.0', 'redacao.db', 100 * 1024 * 1024);
+			}
       var query = "INSERT INTO usuarios (id, access_token, nome, avatar_path) VALUES (?,?,?,?)";
-			// $cordovaSQLite.execute(db, query, [data.id, data.access_token, data.name, data.avatar_path]);
+			$cordovaSQLite.execute(db, query, [data.id, data.access_token, data.name, data.avatar_path]);
 		};
 
 		function remove(accessToken) {
+			if (window.cordova && window.SQLitePlugin) {
+				db = $cordovaSQLite.openDB('redacao.db', 1);
+			} else {
+				db = window.openDatabase('redacao', '1.0', 'redacao.db', 100 * 1024 * 1024);
+			}
 			var query = "DELETE FROM usuarios WHERE access_token = ?";
-			// $cordovaSQLite.execute(db, query, [accessToken]);
+			$cordovaSQLite.execute(db, query, [accessToken]);
 		};
   }
 })();

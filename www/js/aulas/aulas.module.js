@@ -23,12 +23,12 @@
 							controller: 'AulaController as vm'
 						}
 					}
-				}).state('app.aula-assistir', {
-					url: '/aula/assistir/:id',
+				}).state('app.aula-player', {
+					url: '/aula/player/:aulaId',
 					views: {
 						'menuContent': {
 							templateUrl: 'js/aulas/player.html',
-							controller: 'AulaController as vm'
+							controller: 'PlayerController as vm'
 						}
 					}
 				});

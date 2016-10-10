@@ -14,6 +14,7 @@ angular.module('redacao', [
   'redacao.comentarios',
   'redacao.login',
   'redacao.aulas',
+  // 'redacao.directives',
   'redacao.interceptors',
   'redacao.menu'])
 

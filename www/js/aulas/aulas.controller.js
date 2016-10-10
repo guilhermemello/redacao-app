@@ -5,28 +5,33 @@
 		.module('redacao.aulas')
 		.controller('AulasController', AulasController);
 
-	function AulasController($state) {
+	function AulasController($state,
+		AulaService) {
 
 		var vm = angular.extend(this, {
-			aulas: [],
+			categorias: [],
 			carregarAulasPorCategoria: carregarAulasPorCategoria
 		});
 
 		(function activate() {
-			// carregarModulos();
-			vm.aulas = [1,2,3]
+			carregarCategorias();
 		})();
 
-		function carregarAulas() {
-			return AulaService.getModulos().then(function(data) {
-				vm.modulos = _(data.modulos).each(function (modulo) { modulo.status = SituacaoService.get(modulo.status.id) })
-			}).finally(function(){
-				LoadingService.hide();
+		function carregarCategorias() {
+			return AulaService.categorias().then(function(data) {
+				vm.categorias = data.categorias
 			});
-		};
+		}
+
+		// function carregarAulas() {
+		// 	return AulaService.getModulos().then(function(data) {
+		// 		vm.modulos = _(data.modulos).each(function (modulo) { modulo.status = SituacaoService.get(modulo.status.id) })
+		// 	}).finally(function(){
+		// 		LoadingService.hide();
+		// 	});
+		// };
 
 		function carregarAulasPorCategoria(categoriaId) {
-			console.log(categoriaId);
 			$state.go('app.aula-detalhe', {
 				categoriaId: categoriaId
 			});

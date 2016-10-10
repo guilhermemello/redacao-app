@@ -1,0 +1,12 @@
+<div ng-if="target.isVideo()">
+    <p ng-if="target.title">{{target.title}}</p>
+
+    <div class="video-preview">
+      <img ng-src="{{target.imageUrl}}" loadable>
+      <i class="fa fa-play-circle-o"></i>
+    </div>
+
+    <video fullscreenable controls focus>
+      <source ng-if="target.videoLoaded" ng-src="{{target.trustedVideoUrl}}" type="video/mp4">
+    </video>
+</div>

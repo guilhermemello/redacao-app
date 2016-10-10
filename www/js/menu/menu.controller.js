@@ -16,7 +16,9 @@
 		});
 
 		(function activate() {
+			console.log('aaa');
 			DatabaseService.get().then(function(response) {
+				console.log(response);
 				$scope.current_user = response;
 			});
 		})();

@@ -5,27 +5,28 @@
 		.module('redacao.aulas')
 		.controller('AulaController', AulaController);
 
-	function AulaController($state) {
+	function AulaController($state,
+    AulaService) {
+
 		var vm = angular.extend(this, {
 			aulas: [],
+      carregarAulas: carregarAulas,
       assitir: assitir
 		});
 
 		(function activate() {
-			// carregarModulos();
+      carregarAulas(1);
 		})();
 
 		function carregarAulas(categoriaId) {
-			return AulaService.porCategoria(categoriaId).then(function(data) {
-				return data.aulas
-			}).finally(function(){
-				// LoadingService.hide();
+      AulaService.porCategoria(categoriaId).then(function(data) {
+        vm.aulas = data.aulas;
 			});
 		};
 
-    function assitir(id) {
-      $state.go('app.aula-assistir', {
-				id: id
+    function assitir(aulaId) {
+      $state.go('app.aula-player', {
+				aulaId: aulaId
 			});
     }
 	}

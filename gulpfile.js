@@ -60,6 +60,14 @@ gulp.task('replace', function () {
         {
           match: 'AUTH_EXPIRES_IN',
           replacement: settings.AUTH_EXPIRES_IN
+        },
+        {
+          match: 'VIMEO_URL',
+          replacement: settings.VIMEO_URL
+        },
+        {
+          match: 'VIMEO_ACCES_TOKEN',
+          replacement: settings.VIMEO_ACCES_TOKEN
         }
       ]
     }))

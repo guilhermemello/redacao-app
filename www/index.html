@@ -47,8 +47,11 @@
     <script src="js/common/dialog.service.js"></script>
     <script src="js/common/loading.service.js"></script>
     <script src="js/common/situacao.service.js"></script>
+    <script src="js/common/video.service.js"></script>
     <script src="js/common/user.js"></script>
 
+    <script src="js/directives/video_content.html"></script>
+    <script src="js/directives/directives.js"></script>
     <script src="js/interceptors/client_authentication.js"></script>
 
     <script src="js/camera/camera.service.js"></script>
@@ -61,10 +64,13 @@
     <script src="js/aulas/aulas.controller.js"></script>
     <script src="js/aulas/aula.controller.js"></script>
     <script src="js/aulas/aulas.service.js"></script>
+    <script src="js/aulas/player.controller.js"></script>
 
     <script src="lib/jsSHA/src/sha.js"></script>
     <script src="lib/uri.js/src/URI.min.js"></script>
     <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+    <script src="lib/lodash/dist/lodash.min.js"></script>
+    <script src="lib/underscore/underscore-min.js"></script>
 
     <script>
       document.addEventListener('deviceready', function () {
@@ -72,7 +78,7 @@
       }, false);
     </script>
 
-    <script>window.phonegap = {}</script>
+    <!-- <script>window.phonegap = {}</script> -->
   </head>
 
   <body ng-app="redacao">
