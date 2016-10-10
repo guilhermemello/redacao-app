@@ -13,6 +13,7 @@ angular.module('redacao', [
   'redacao.envios',
   'redacao.comentarios',
   'redacao.login',
+  'redacao.aulas',
   'redacao.interceptors',
   'redacao.menu'])
 
