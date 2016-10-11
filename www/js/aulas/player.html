@@ -1,14 +1,40 @@
 <ion-view view-title="Aula">
 	<ion-content overflow-scroll="true">
-    <div class="list card">
-      <div class="item item-text-wrap">
-        <h2>{{vm.aula.nome}}</h2>
-      </div>
-			<div class="video-container">
-				<video fullscreenable controls focus>
-					<source ng-if="vm.videoLoaded" ng-src="{{vm.aula.videoUrl}}" type="video/mp4">
-				</video>
+    <!-- <div class="list card"> -->
+			<div class="item item-text-wrap">
+				<h2>{{vm.aula.nome}}</h2>
 			</div>
-		</div>
+
+			<video fullscreenable controls focus>
+				<source ng-if="vm.videoLoaded" ng-src="{{vm.aula.videoUrl}}" type="video/mp4">
+			</video>
+
+			<div class="item">
+				<div class="row">
+   				<div class="col col-25">
+						<img src="https://www.redacaoperfeita.com/assets/Arenildo-5c26bf0e320e605a281951dccdeedcb30ba7d360bb5d0d5ccdff93eed25d7c99.png" width="60" />
+					</div>
+   				<div class="col col-50">
+						Prof. Arenildo Santos
+					</div>
+				</div>
+  		</div>
+
+
+			<div class="row">
+					<div class="col">
+							<button class="button button-full button-stable icon-left">Marcar como assistido</button>
+					</div>
+			</div>
+			<!-- <div class="row">
+				<div class="col">
+
+				</div>
+			</div> -->
+
+			<!-- <div class="bar bar-footer bar-light footer-buttons">
+
+			</div> -->
+		<!-- </div> -->
 	</ion-content>
 </ion-view>

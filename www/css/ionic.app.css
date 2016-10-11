@@ -10315,12 +10315,11 @@ form .list .item-input input {
   border-top-color: #E0EEE0;
   border-bottom-color: #E0EEE0; }
 
-.video-preview {
-  position: relative; }
-  .video-preview i {
-    top: calc(50% - 50px);
-    left: calc(50% - 50px);
-    color: #fff;
-    opacity: 0.8;
-    position: absolute;
-    font-size: 100px; }
+.bar-footer.footer-buttons {
+  padding: 0px; }
+
+.bar-footer.footer-buttons .row {
+  padding: 0px; }
+
+.bar-footer.footer-buttons .row .col {
+  text-align: center; }
