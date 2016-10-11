@@ -1,13 +1,14 @@
 <ion-view view-title="Aula">
 	<ion-content overflow-scroll="true">
-    <!-- <div class="list card"> -->
 			<div class="item item-text-wrap">
 				<h2>{{vm.aula.nome}}</h2>
 			</div>
 
-			<video fullscreenable controls focus>
-				<source ng-if="vm.videoLoaded" ng-src="{{vm.aula.videoUrl}}" type="video/mp4">
-			</video>
+			<div class="row">
+				<video fullscreenable controls focus>
+					<source ng-if="vm.videoLoaded" ng-src="{{vm.aula.videoUrl}}" type="video/mp4">
+				</video>
+			</div>
 
 			<div class="item">
 				<div class="row">
@@ -20,21 +21,10 @@
 				</div>
   		</div>
 
-
 			<div class="row">
-					<div class="col">
-							<button class="button button-full button-stable icon-left">Marcar como assistido</button>
-					</div>
-			</div>
-			<!-- <div class="row">
 				<div class="col">
-
+					<button class="button button-full button-stable icon-left">Marcar como assistido</button>
 				</div>
-			</div> -->
-
-			<!-- <div class="bar bar-footer bar-light footer-buttons">
-
-			</div> -->
-		<!-- </div> -->
+			</div>
 	</ion-content>
 </ion-view>
