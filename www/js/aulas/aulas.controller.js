@@ -6,27 +6,34 @@
 		.controller('AulasController', AulasController);
 
 	function AulasController($state,
-		AulaService) {
+		$stateParams,
+    AulaService) {
+
+		var categoriaId = $stateParams.categoriaId;
 
 		var vm = angular.extend(this, {
-			categorias: [],
-			carregarAulasPorCategoria: carregarAulasPorCategoria
+			aulas: [],
+      carregarAulas: carregarAulas,
+      assitir: assitir
 		});
 
 		(function activate() {
-			carregarCategorias();
+      carregarAulas(categoriaId);
 		})();
 
-		function carregarCategorias() {
-			return AulaService.categorias().then(function(data) {
-				vm.categorias = data.categorias
-			});
-		}
-
-		function carregarAulasPorCategoria(categoriaId) {
-			$state.go('app.aula-detalhe', {
-				categoriaId: categoriaId
+		function carregarAulas(categoriaId) {
+      AulaService.porCategoria(categoriaId).then(function(data) {
+        vm.aulas = data.aulas;
 			});
 		};
+
+    function assitir(aula) {
+			if (aula.situacao != 1) {
+      	$state.go('app.aula-player', {
+					aulaId: aula.id,
+					categoriaId: categoriaId
+				});
+			}
+    }
 	}
 })();

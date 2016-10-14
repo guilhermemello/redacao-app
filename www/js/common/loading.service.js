@@ -15,7 +15,7 @@
 
     function show() {
       $ionicLoading.show({
-        template: '<ion-spinner></ion-spinner>'
+        template: "<div class='spinner'><ion-spinner icon='android'></ion-spinner></div>"
       });
     };
 

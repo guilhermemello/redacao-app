@@ -12,7 +12,7 @@
 					views: {
 						'menuContent': {
 							templateUrl: 'js/aulas/categorias.html',
-							controller: 'AulasController as vm'
+							controller: 'CategoriasController as vm'
 						}
 					}
 				}).state('app.aula-detalhe', {
@@ -20,7 +20,7 @@
 					views: {
 						'menuContent': {
 							templateUrl: 'js/aulas/aulas.html',
-							controller: 'AulaController as vm'
+							controller: 'AulasController as vm'
 						}
 					}
 				}).state('app.aula-player', {

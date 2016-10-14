@@ -638,3 +638,19 @@ ion-side-menu .heading-item .message {
 .aula_fechada {
 	color: #C4C4C4 !important;
 }
+
+div.spinner {
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  height: 40px;
+  text-align: center;
+	margin-top: 230px;
+}
+.spinner svg {
+  width: 19% !important;
+  height: 85px !important;
+}
+
+.spinner-android {
+	stroke: $laranja-loading !important;
+}

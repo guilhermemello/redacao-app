@@ -23,6 +23,7 @@
 
 		function getByTema(moduloId) {
 			return $http.get(API_ENDPOINT + '/trabalhos/' + moduloId + '/por_tema').then(function(response) {
+				console.log(response);
 				return response.data;
 			});
 		};
