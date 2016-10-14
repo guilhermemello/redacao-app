@@ -96,6 +96,11 @@ img {max-width: 100%;}
 	text-align: center;
 }
 
+.item h2 {
+	font-size: 18px;
+	font-weight: 450;
+}
+
 .tema {
 	margin-top: 20px;
 }
@@ -628,4 +633,8 @@ ion-side-menu .heading-item .message {
 }
 .bar-footer.footer-buttons .row .col{
      text-align: center;
+}
+
+.aula_fechada {
+	color: #C4C4C4 !important;
 }

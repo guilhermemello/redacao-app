@@ -23,14 +23,6 @@
 			});
 		}
 
-		// function carregarAulas() {
-		// 	return AulaService.getModulos().then(function(data) {
-		// 		vm.modulos = _(data.modulos).each(function (modulo) { modulo.status = SituacaoService.get(modulo.status.id) })
-		// 	}).finally(function(){
-		// 		LoadingService.hide();
-		// 	});
-		// };
-
 		function carregarAulasPorCategoria(categoriaId) {
 			$state.go('app.aula-detalhe', {
 				categoriaId: categoriaId

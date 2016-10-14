@@ -9882,6 +9882,10 @@ img {
 .card.col.home h2 {
   text-align: center; }
 
+.item h2 {
+  font-size: 18px;
+  font-weight: 450; }
+
 .tema {
   margin-top: 20px; }
 
@@ -10323,3 +10327,6 @@ form .list .item-input input {
 
 .bar-footer.footer-buttons .row .col {
   text-align: center; }
+
+.aula_fechada {
+  color: #C4C4C4 !important; }

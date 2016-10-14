@@ -6,7 +6,10 @@
 		.controller('AulaController', AulaController);
 
 	function AulaController($state,
+		$stateParams,
     AulaService) {
+
+		var categoriaId = $stateParams.categoriaId;
 
 		var vm = angular.extend(this, {
 			aulas: [],
@@ -15,7 +18,7 @@
 		});
 
 		(function activate() {
-      carregarAulas(1);
+      carregarAulas(categoriaId);
 		})();
 
 		function carregarAulas(categoriaId) {
@@ -24,10 +27,17 @@
 			});
 		};
 
-    function assitir(aulaId) {
-      $state.go('app.aula-player', {
-				aulaId: aulaId
-			});
+    function assitir(aula) {
+			console.log(aula);
+
+			if (aula.situacao == 1) {
+
+			} else {
+      	$state.go('app.aula-player', {
+					aulaId: aula.id,
+					categoriaId: categoriaId
+				});
+			}
     }
 	}
 })();

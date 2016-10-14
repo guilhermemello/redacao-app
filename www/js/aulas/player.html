@@ -1,29 +1,30 @@
 <ion-view view-title="Aula">
-	<ion-content overflow-scroll="true">
+	<ion-content>
 			<div class="item item-text-wrap">
 				<h2>{{vm.aula.nome}}</h2>
 			</div>
 
-			<div class="row">
-				<video fullscreenable controls focus>
-					<source ng-if="vm.videoLoaded" ng-src="{{vm.aula.videoUrl}}" type="video/mp4">
-				</video>
-			</div>
+			<video fullscreenable controls focus>
+				<source ng-if="vm.videoLoaded" ng-src="{{vm.aula.videoUrl}}" type="video/mp4">
+			</video>
 
 			<div class="item">
 				<div class="row">
    				<div class="col col-25">
-						<img src="https://www.redacaoperfeita.com/assets/Arenildo-5c26bf0e320e605a281951dccdeedcb30ba7d360bb5d0d5ccdff93eed25d7c99.png" width="60" />
+						<img src="http://res.cloudinary.com/qconcursos/image/upload/t_nossos_professores/v2/{{vm.aula.professor.avatar_path}}" width="60" class="img-circle" />
 					</div>
    				<div class="col col-50">
-						Prof. Arenildo Santos
+						Prof. {{vm.aula.professor.nome}}
 					</div>
 				</div>
   		</div>
 
 			<div class="row">
 				<div class="col">
-					<button class="button button-full button-stable icon-left">Marcar como assistido</button>
+					<button class="button button-full button-stable icon-left" ng-click="vm.marcarComoAssistida(vm.aula.aula_id)" ng-if="vm.aula.situacao == 2">
+						<i class="ion-checkmark-round"></i>
+						Marcar como assistido
+					</button>
 				</div>
 			</div>
 	</ion-content>

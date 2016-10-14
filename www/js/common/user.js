@@ -23,11 +23,9 @@
 			var deferred = $q.defer()
 
         if (this.shouldInitFromLocalStorage()) {
-					console.log('a');
           // this.initialize(CacheService.get('user'))
           deferred.resolve()
         } else {
-					console.log('b');
           deferred.reject()
         }
 

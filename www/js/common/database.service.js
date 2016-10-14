@@ -49,7 +49,6 @@
 						hash = response.rows.item(i);
 					}
 
-					console.log(hash);
 					q.resolve(hash);
 				}
 				});

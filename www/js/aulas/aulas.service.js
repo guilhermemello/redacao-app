@@ -11,14 +11,14 @@
 		var service = {
 			porCategoria: porCategoria,
 			categorias: categorias,
-			get: get
+			get: get,
+			marcarComoAssistida: marcarComoAssistida
 		};
 
 		return service;
 
-		function get(id) {
-			console.log(id);
-			return $http.get(API_ENDPOINT + '/aulas/' + id).then(function(response) {
+		function get(aulaId, userId, categoriaId) {
+			return $http.get('http://localhost:4000/api/v1/' + '/aulas/' + aulaId + '?user_id=' + 557 + "&categoria_id=" + categoriaId).then(function(response) {
 				return response.data;
 			});
 		}
@@ -31,6 +31,12 @@
 
 		function porCategoria() {
 			return $http.get(API_ENDPOINT + '/aulas?user_id=557&categoria_id=1').then(function(response) {
+				return response.data;
+			});
+		};
+
+		function marcarComoAssistida(aulaId, userId, categoriaId) {
+			return $http.post('http://localhost:4000/api/v1/' + 'aulas/' + aulaId + '/marcar_como_assistida', { user_id: 557, categoria_id: categoriaId }).then(function(response) {
 				return response.data;
 			});
 		};

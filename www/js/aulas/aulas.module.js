@@ -24,7 +24,7 @@
 						}
 					}
 				}).state('app.aula-player', {
-					url: '/aula/player/:aulaId',
+					url: '/aula/player/:categoriaId/:aulaId',
 					views: {
 						'menuContent': {
 							templateUrl: 'js/aulas/player.html',

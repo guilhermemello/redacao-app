@@ -21,7 +21,6 @@
     function load(videoId) {
       var deferred = $q.defer();
 
-      console.log(VIMEO_URL + '/' + videoId + '?access_token=' + VIMEO_ACCES_TOKEN);
       $http.get(VIMEO_URL + '/' + videoId + '?access_token=' + VIMEO_ACCES_TOKEN)
         .then(function (response) {
           deferred.resolve({

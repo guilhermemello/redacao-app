@@ -29,7 +29,7 @@
 		};
 
     function create(trabalhoId, conteudo) {
-      return $http.post(API_ENDPOINT + '/comentarios?trabalho_id=577', { trabalho_id: trabalhoId, comentario: { conteudo: conteudo } });
+      return $http.post(API_ENDPOINT + '/comentarios', { trabalho_id: trabalhoId, comentario: { conteudo: conteudo } });
     };
 	}
 })();
